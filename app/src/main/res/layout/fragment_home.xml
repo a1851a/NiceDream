@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/ic_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/home_title"
+            android:layout_width="413dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="40dp"
+            android:text="現在時間"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="45sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/home_date"
+            android:layout_width="413dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="日期"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_title" />
+
+        <TextView
+            android:id="@+id/home_time"
+            android:layout_width="413dp"
+            android:layout_height="50dp"
+            android:text="時間"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_date" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout_display1"
+            android:layout_width="417dp"
+            android:layout_height="355dp"
+            android:layout_marginTop="5dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/home_time"
+            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_time">
+
+            <TextView
+                android:id="@+id/home_notice1"
+                android:layout_width="413dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:text="早點起床身體好~"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout_display2"
+            android:layout_width="417dp"
+            android:layout_height="355dp"
+            android:layout_marginTop="5dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/home_time"
+            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_time">
+
+            <TextView
+                android:id="@+id/home_notice2"
+                android:layout_width="413dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:text="工作時間~"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout_display3"
+            android:layout_width="417dp"
+            android:layout_height="355dp"
+            android:layout_marginTop="5dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/home_time"
+            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_time">
+
+            <TextView
+                android:id="@+id/home_notice3"
+                android:layout_width="413dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="休息是為了走更長遠的路"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/test_3"
+                android:layout_width="317dp"
+                android:layout_height="278dp"
+                android:layout_marginTop="21dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_rapid_test_3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_notice3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

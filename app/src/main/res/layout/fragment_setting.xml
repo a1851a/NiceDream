@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background"
+    tools:context=".ui.login.LoginActivity">
+
+    <ImageView
+        android:id="@+id/setting_logo"
+        android:layout_width="198dp"
+        android:layout_height="192dp"
+        android:layout_marginTop="40dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/share"
+        android:layout_width="405dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="@color/white"
+        android:text="分享與回饋"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setting_logo" />
+
+    <Button
+        android:id="@+id/education"
+        android:layout_width="405dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/white"
+        android:text="衛生教育"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/share" />
+
+    <Button
+        android:id="@+id/account_edit"
+        android:layout_width="405dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/white"
+        android:text="個人帳號設定"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/education" />
+
+    <Button
+        android:id="@+id/article"
+        android:layout_width="405dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/white"
+        android:text="報導推薦"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_edit" />
+
+    <Button
+        android:id="@+id/vedio"
+        android:layout_width="405dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/white"
+        android:text="影片推薦"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/article" />
+</androidx.constraintlayout.widget.ConstraintLayout>

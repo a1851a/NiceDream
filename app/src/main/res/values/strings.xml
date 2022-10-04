@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name" >Nice Dream</string>
-    <string name="please_check_network" >Please check network status</string>
+    <string name="app_name">Nice Dream</string>
+    <string name="please_check_network">Please check network status</string>
     <string name="please_wait_init">Initializing, please try again later</string>
     <string name="loading">loading...</string>
     <string name="open_internet">Open internet</string>
@@ -9,8 +9,9 @@
     <string name="click_again_to_exit">Click again to exit</string>
     <string name="login_failed">login_failed</string>
 
-    <string name="facebook_app_id" >1236672693855922</string>
-    <string name="fb_login_protocol_scheme" >fb1236672693855922</string>
-    <string name="facebook_client_token" >44ab74234a083c953847698698d4e261</string>
+    <string name="facebook_app_id">1236672693855922</string>
+    <string name="fb_login_protocol_scheme">fb1236672693855922</string>
+    <string name="facebook_client_token">44ab74234a083c953847698698d4e261</string>
+
 
 </resources>

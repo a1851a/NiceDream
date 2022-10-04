@@ -7,4 +7,66 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            app:tabPaddingStart="-1dp"
+            app:tabPaddingEnd="-1dp"
+            android:id="@+id/tabLayout_main_bottomBar"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tabIndicatorColor="@android:color/transparent">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabItem_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout="@layout/itemtab_main"
+                android:icon="@drawable/ic_home" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabItem_alarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout="@layout/itemtab_main"
+                android:icon="@drawable/ic_alarm" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabItem_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout="@layout/itemtab_main"
+                android:icon="@drawable/ic_record" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabItem_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout="@layout/itemtab_main"
+                android:icon="@drawable/ic_setting" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+    <fju.project.nicedream.data.util.DisableSwipeViewPager
+        android:id="@+id/viewPager_main_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/tabLayout_main_bottomBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </fju.project.nicedream.data.util.DisableSwipeViewPager>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
