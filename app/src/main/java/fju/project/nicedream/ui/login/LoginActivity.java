@@ -174,8 +174,6 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
-                            startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                            LoginActivity.this.finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -220,7 +218,7 @@ public class LoginActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleGoogleAccessToken(task);
         }
-        else {
+        else if (!Objects.equals(mCallbackManager,null)){
             super.onActivityResult(requestCode, resultCode, data);
             mCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
