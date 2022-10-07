@@ -29,6 +29,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="410dp"
+            android:layout_height="340dp"
+            android:layout_marginTop="40dp"
+            android:background="#FEFEFE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/record_title" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

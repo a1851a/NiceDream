@@ -6,10 +6,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
+import butterknife.ButterKnife;
 import fju.project.nicedream.R;
 
 public class HomeFragment extends Fragment {
@@ -17,6 +21,14 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home,container,false);
+        View view= inflater.inflate(R.layout.fragment_home,container,false);
+
+        TextView date =(TextView) view.findViewById(R.id.home_date);
+        date.setText(""+ DateFormat.format("yyyy/MM/dd",System.currentTimeMillis()));
+
+        TextView time =(TextView) view.findViewById(R.id.home_time);
+        time.setText(""+ DateFormat.format("HH:mm",System.currentTimeMillis()));
+
+        return view;
     }
 }
