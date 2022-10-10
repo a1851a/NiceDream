@@ -11,6 +11,7 @@ public class NiceDreamApplication extends Application {
     public static Timer getTimer (){
 
         timer = new Timer();
+
         return timer;
     }
 

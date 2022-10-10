@@ -20,7 +20,7 @@
             android:id="@+id/tabLayout_main_bottomBar"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:background="@color/gray"
+            android:background="@color/grey"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -43,9 +43,6 @@ public class HomeFragment extends Fragment {
         ConstraintLayout display2 = (ConstraintLayout) view.findViewById(R.id.constraintLayout_display2);
         ConstraintLayout display3 = (ConstraintLayout) view.findViewById(R.id.constraintLayout_display3);
 
-
-
-
         return view;
     }
 
@@ -63,17 +60,6 @@ public class HomeFragment extends Fragment {
                         date.setText(""+ DateFormat.format("yyyy/MM/dd",System.currentTimeMillis()));
                         time = getActivity().findViewById(R.id.home_time);
                         time.setText(""+ DateFormat.format("HH:mm",System.currentTimeMillis()));
-
-                        hr =(String) DateFormat.format("HH",System.currentTimeMillis());
-                        if (hr == "12"){
-
-                        }
-                        else if (hr == "13"){
-
-                        }
-                        else {
-
-                        }
                     }
                 });
             }

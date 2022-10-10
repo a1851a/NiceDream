@@ -37,7 +37,7 @@
             android:layout_width="413dp"
             android:layout_height="44dp"
             android:layout_marginTop="5dp"
-            android:text="時間"
+            android:text="00 : 00 : 00"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="30sp"
