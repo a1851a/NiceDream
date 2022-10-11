@@ -51,7 +51,6 @@ public class AlarmFragment extends Fragment {
                 end.setVisibility(View.VISIBLE);
                 count_time_end.setText("00:00:00");
                 time = 0.0;
-
                 timerTask = new TimerTask() {
                     @Override
                     public void run() {
@@ -75,7 +74,6 @@ public class AlarmFragment extends Fragment {
                 count_time_end.setText(""+ DateFormat.format("HH:mm:ss",System.currentTimeMillis()));
                 end.setVisibility(View.INVISIBLE);
                 start.setVisibility(View.VISIBLE);
-
                 timerTask.cancel();
             }
         });

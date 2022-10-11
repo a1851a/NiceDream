@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -23,10 +25,9 @@ public class HomeFragment extends Fragment {
 
     private Timer timer;
     private TimerTask timerTask;
-    private TextView date;
-    private TextView time;
-    private String hr;
-    private ConstraintLayout display1,display2,display3;
+    private TextView date,time,judge_time;
+    private ConstraintLayout display0,display1,display2,display3;
+    private int hr;
 
     @Nullable
     @Override
@@ -39,9 +40,8 @@ public class HomeFragment extends Fragment {
         TextView time =(TextView) view.findViewById(R.id.home_time);
         time.setText(""+ DateFormat.format("HH:mm",System.currentTimeMillis()));
 
-        ConstraintLayout display1 = (ConstraintLayout) view.findViewById(R.id.constraintLayout_display1);
-        ConstraintLayout display2 = (ConstraintLayout) view.findViewById(R.id.constraintLayout_display2);
-        ConstraintLayout display3 = (ConstraintLayout) view.findViewById(R.id.constraintLayout_display3);
+        TextView judge_time =(TextView) view.findViewById(R.id.judge_time);
+        judge_time.setText(""+ DateFormat.format("HH",System.currentTimeMillis()));
 
         return view;
     }
@@ -60,6 +60,32 @@ public class HomeFragment extends Fragment {
                         date.setText(""+ DateFormat.format("yyyy/MM/dd",System.currentTimeMillis()));
                         time = getActivity().findViewById(R.id.home_time);
                         time.setText(""+ DateFormat.format("HH:mm",System.currentTimeMillis()));
+                        judge_time = getActivity().findViewById(R.id.judge_time);
+                        judge_time.setText(""+ DateFormat.format("HH",System.currentTimeMillis()));
+                        display0 = getActivity().findViewById(R.id.constraintLayout_display0);
+                        display1 = getActivity().findViewById(R.id.constraintLayout_display1);
+                        display2 = getActivity().findViewById(R.id.constraintLayout_display2);
+                        display3 = getActivity().findViewById(R.id.constraintLayout_display3);
+
+                        double hr =Double.parseDouble(judge_time.getText().toString());
+                        display0.setVisibility(View.INVISIBLE);
+                        //5~11
+                        if (hr > 4 && hr < 12){
+                            display1.setVisibility(View.VISIBLE);
+                            display2.setVisibility(View.INVISIBLE);
+                            display3.setVisibility(View.INVISIBLE);
+                        }
+                        //12~22
+                        else if (hr > 11 && hr < 23){
+                            display1.setVisibility(View.INVISIBLE);
+                            display2.setVisibility(View.VISIBLE);
+                            display3.setVisibility(View.INVISIBLE);
+                        }
+                        else {
+                            display1.setVisibility(View.INVISIBLE);
+                            display2.setVisibility(View.INVISIBLE);
+                            display3.setVisibility(View.VISIBLE);
+                        }
                     }
                 });
             }
@@ -67,6 +93,4 @@ public class HomeFragment extends Fragment {
         timer = NiceDreamApplication.getTimer();
         timer.schedule(timerTask,1000,1000);
     }
-
-
 }
