@@ -1,5 +1,6 @@
 package fju.project.nicedream.ui.main.fragment.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Calendar;
@@ -20,6 +22,7 @@ import java.util.TimerTask;
 
 import fju.project.nicedream.NiceDreamApplication;
 import fju.project.nicedream.R;
+import fju.project.nicedream.ui.vedio.VedioActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -76,7 +79,7 @@ public class HomeFragment extends Fragment {
                             display3.setVisibility(View.INVISIBLE);
                         }
                         //12~22
-                        else if (hr > 11 && hr < 23){
+                        else if (hr > 11 && hr < 22){
                             display1.setVisibility(View.INVISIBLE);
                             display2.setVisibility(View.VISIBLE);
                             display3.setVisibility(View.INVISIBLE);
@@ -92,5 +95,33 @@ public class HomeFragment extends Fragment {
         };
         timer = NiceDreamApplication.getTimer();
         timer.schedule(timerTask,1000,1000);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        ImageView test1 =  getActivity().findViewById(R.id.test_1);
+        ImageView test2 =  getActivity().findViewById(R.id.test_2);
+        ImageView test3 =  getActivity().findViewById(R.id.test_3);
+
+        test1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //startActivity(new Intent(getActivity(), VedioActivity.class));
+            }
+        });
+        test2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //startActivity(new Intent(getActivity(), VedioActivity.class));
+            }
+        });
+        test3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //startActivity(new Intent(getActivity(), VedioActivity.class));
+            }
+        });
     }
 }

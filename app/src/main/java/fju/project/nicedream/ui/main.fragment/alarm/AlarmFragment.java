@@ -50,6 +50,7 @@ public class AlarmFragment extends Fragment {
                 start.setVisibility(View.INVISIBLE);
                 end.setVisibility(View.VISIBLE);
                 count_time_end.setText("00:00:00");
+                sum_time.setText("00 : 00 : 00");
                 time = 0.0;
                 timerTask = new TimerTask() {
                     @Override
