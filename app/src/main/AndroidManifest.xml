@@ -79,7 +79,7 @@
         </activity>
 
         <activity
-            android:name=".ui.article.ArticleActivity"
+            android:name=".ui.main.fragment.setting.article.ArticleActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -88,7 +88,7 @@
         </activity>
 
         <activity
-            android:name=".ui.vedio.VedioActivity"
+            android:name=".ui.main.fragment.setting.vedio.VedioActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data

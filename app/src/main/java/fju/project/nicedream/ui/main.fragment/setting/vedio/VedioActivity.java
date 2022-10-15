@@ -1,4 +1,4 @@
-package fju.project.nicedream.ui.vedio;
+package fju.project.nicedream.ui.main.fragment.setting.vedio;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    	
+    <dimen name="text_large_size">117.6889sp</dimen>
+    	
+    <dimen name="text_big_size">44.1333sp</dimen>
+    	
+    <dimen name="text_top_title_size">33.1000sp</dimen>
+    	
+    <dimen name="text_title_size">29.4222sp</dimen>
+    	
+    <dimen name="text_default_size">25.7444sp</dimen>
+    	
+    <dimen name="text_sub_size">22.0667sp</dimen>
+    	
+    <dimen name="image_icon_min_size">22.0667dp</dimen>
+    	
+    <dimen name="image_icon_small_size">55.1667dp</dimen>
+    	
+    <dimen name="image_icon_size">73.5556dp</dimen>
+    	
+    <dimen name="image_big_size">110.3333dp</dimen>
+    	
+    <dimen name="circle_button_icon_frame_size">44.1333dp</dimen>
+    	
+    <dimen name="circle_button_icon_content_size">33.1000dp</dimen>
+    	
+    <dimen name="button_icon_size">44.1333dp</dimen>
+    	
+    <dimen name="button_text_size">29.4222sp</dimen>
+    	
+    <dimen name="margin_8">14.7111dp</dimen>
+    	
+    <dimen name="margin_4">7.3556dp</dimen>
+    	
+    <dimen name="corner_radius">9.1944dp</dimen>
+    	
+    <dimen name="corner_rounded">36.7778dp</dimen>
+    	
+    <dimen name="fab_normal_size">73.5556dp</dimen>
+    	
+    <dimen name="fab_large_size">110.3333dp</dimen>
+    	
+    <dimen name="text_line_spaces_extra">3.6778dp</dimen>
+    	
+    <dimen name="text_line_spaces_multiplier">1.2</dimen>
+    	
+    <dimen name="layout_top_bar">73.5556dp</dimen>
+</resources>

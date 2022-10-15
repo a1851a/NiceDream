@@ -1,6 +1,5 @@
 package fju.project.nicedream.ui.main.fragment.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,14 +14,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import fju.project.nicedream.NiceDreamApplication;
 import fju.project.nicedream.R;
-import fju.project.nicedream.ui.vedio.VedioActivity;
 
 public class HomeFragment extends Fragment {
 

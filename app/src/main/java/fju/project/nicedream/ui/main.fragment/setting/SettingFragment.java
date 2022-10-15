@@ -12,12 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-
 import fju.project.nicedream.R;
 import fju.project.nicedream.data.util.DeviceChecker;
-import fju.project.nicedream.ui.article.ArticleActivity;
-import fju.project.nicedream.ui.vedio.VedioActivity;
+import fju.project.nicedream.ui.main.fragment.setting.article.ArticleActivity;
+import fju.project.nicedream.ui.main.fragment.setting.vedio.VedioActivity;
 
 public class SettingFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package fju.project.nicedream.ui.article;
+package fju.project.nicedream.ui.main.fragment.setting.article;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

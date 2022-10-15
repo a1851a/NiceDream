@@ -68,6 +68,7 @@
                 android:layout_width="240dp"
                 android:layout_height="50dp"
                 android:text="判斷中..."
+                android:visibility="invisible"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="30sp"
@@ -79,18 +80,17 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout_display1"
-            android:layout_width="417dp"
-            android:layout_height="355dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="400dp"
+            android:layout_height="380dp"
+            android:layout_marginTop="10dp"
             android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="@+id/home_time"
-            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/home_time">
 
             <TextView
                 android:id="@+id/home_notice1"
-                android:layout_width="413dp"
+                android:layout_width="300dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
                 android:text="早點起床身體好~"
@@ -103,13 +103,12 @@
 
             <ImageView
                 android:id="@+id/test_1"
-                android:layout_width="317dp"
-                android:layout_height="278dp"
-                android:layout_marginTop="21dp"
-                android:scaleType="centerInside"
+                android:layout_width="400dp"
+                android:layout_height="355dp"
+                android:layout_marginTop="0dp"
                 android:src="@drawable/ic_rapid_test_1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintHorizontal_bias="0.47"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_notice1" />
 
@@ -117,18 +116,17 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout_display2"
-            android:layout_width="412dp"
-            android:layout_height="350dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="400dp"
+            android:layout_height="380dp"
+            android:layout_marginTop="10dp"
             android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="@+id/home_time"
-            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/home_time">
 
             <TextView
                 android:id="@+id/home_notice2"
-                android:layout_width="413dp"
+                android:layout_width="300dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
                 android:text="工作時間~"
@@ -141,13 +139,12 @@
 
             <ImageView
                 android:id="@+id/test_2"
-                android:layout_width="317dp"
-                android:layout_height="278dp"
-                android:layout_marginTop="21dp"
-                android:scaleType="centerInside"
+                android:layout_width="400dp"
+                android:layout_height="355dp"
+                android:layout_marginTop="0dp"
                 android:src="@drawable/ic_rapid_test_2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintHorizontal_bias="0.47"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_notice2" />
 
@@ -155,21 +152,19 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout_display3"
-            android:layout_width="407dp"
-            android:layout_height="350dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="400dp"
+            android:layout_height="380dp"
+            android:layout_marginTop="10dp"
             android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="@+id/home_time"
-            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/home_time">
 
             <TextView
                 android:id="@+id/home_notice3"
-                android:layout_width="413dp"
-                android:layout_height="50dp"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
                 android:text="休息是為了走更長遠的路"
                 android:textAlignment="center"
                 android:textColor="@color/white"
@@ -180,13 +175,12 @@
 
             <ImageView
                 android:id="@+id/test_3"
-                android:layout_width="317dp"
-                android:layout_height="278dp"
-                android:layout_marginTop="5dp"
-                android:scaleType="centerInside"
+                android:layout_width="400dp"
+                android:layout_height="355dp"
+                android:layout_marginTop="0dp"
                 android:src="@drawable/ic_rapid_test_3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintHorizontal_bias="0.47"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_notice3" />
 
