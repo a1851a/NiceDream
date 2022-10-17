@@ -14,7 +14,10 @@ import android.widget.Button;
 
 import fju.project.nicedream.R;
 import fju.project.nicedream.data.util.DeviceChecker;
+import fju.project.nicedream.ui.main.fragment.setting.account.AccountActivity;
 import fju.project.nicedream.ui.main.fragment.setting.article.ArticleActivity;
+import fju.project.nicedream.ui.main.fragment.setting.education.EducationActivity;
+import fju.project.nicedream.ui.main.fragment.setting.share.ShareActivity;
 import fju.project.nicedream.ui.main.fragment.setting.vedio.VedioActivity;
 
 public class SettingFragment extends Fragment {
@@ -45,7 +48,7 @@ public class SettingFragment extends Fragment {
                     return;
                 }
                 else {
-
+                    startActivity(new Intent(getActivity(), ShareActivity.class));
                 }
             }
         });
@@ -56,7 +59,7 @@ public class SettingFragment extends Fragment {
                     return;
                 }
                 else {
-
+                    startActivity(new Intent(getActivity(), EducationActivity.class));
                 }
             }
         });
@@ -67,7 +70,7 @@ public class SettingFragment extends Fragment {
                     return;
                 }
                 else {
-
+                    startActivity(new Intent(getActivity(), AccountActivity.class));
                 }
             }
         });
