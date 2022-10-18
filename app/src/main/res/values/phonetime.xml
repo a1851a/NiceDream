@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="phonetime">
+
+        <item>請選擇</item>
+        <item>0~30分鐘</item>
+        <item>30~60分鐘</item>
+        <item>60~90分鐘</item>
+        <item>90~120分鐘</item>
+        <item>120~150分鐘</item>
+        <item>超過150分鐘</item>
+
+    </string-array>
+
+</resources>

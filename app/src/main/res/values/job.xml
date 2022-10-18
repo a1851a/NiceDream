@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="job">
+
+        <item>請選擇</item>
+        <item>學生</item>
+        <item>餐飲業</item>
+        <item>資訊業</item>
+        <item>製造業</item>
+        <item>金融業</item>
+        <item>廣告業</item>
+        <item>軍人</item>
+        <item>教師</item>
+        <item>公務人員</item>
+        <item>服務業</item>
+        <item>家管</item>
+        <item>其他</item>
+
+    </string-array>
+
+</resources>

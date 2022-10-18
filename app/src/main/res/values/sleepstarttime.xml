@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="sleepstarttime">
+
+        <item>請選擇</item>
+        <item>9點前</item>
+        <item>9~10點</item>
+        <item>10~11點</item>
+        <item>11~12點</item>
+        <item>12~1點</item>
+        <item>1~2點</item>
+        <item>2點後</item>
+
+    </string-array>
+
+</resources>

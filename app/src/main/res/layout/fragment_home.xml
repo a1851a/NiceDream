@@ -68,7 +68,7 @@
                 android:layout_width="240dp"
                 android:layout_height="50dp"
                 android:text="判斷中..."
-                android:visibility="invisible"
+                android:visibility="visible"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="30sp"

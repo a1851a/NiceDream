@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="comfortable">
+
+        <item>請選擇</item>
+        <item>非常硬</item>
+        <item>硬</item>
+        <item>稍微硬</item>
+        <item>稍微軟</item>
+        <item>軟</item>
+        <item>非常軟</item>
+
+    </string-array>
+
+</resources>

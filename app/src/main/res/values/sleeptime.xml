@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="sleeptime">
+
+        <item>請選擇</item>
+        <item>少於4小時</item>
+        <item>4~6小時</item>
+        <item>6~8小時</item>
+        <item>8~10小時</item>
+        <item>10~12小時</item>
+        <item>超過12小時</item>
+
+    </string-array>
+
+</resources>

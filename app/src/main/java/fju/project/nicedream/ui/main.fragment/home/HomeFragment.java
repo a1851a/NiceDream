@@ -1,5 +1,6 @@
 package fju.project.nicedream.ui.main.fragment.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import java.util.TimerTask;
 
 import fju.project.nicedream.NiceDreamApplication;
 import fju.project.nicedream.R;
+import fju.project.nicedream.ui.rapid_test.RapidtestActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -104,19 +106,19 @@ public class HomeFragment extends Fragment {
         test1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(getActivity(), VedioActivity.class));
+                startActivity(new Intent(getActivity(), RapidtestActivity.class));
             }
         });
         test2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(getActivity(), VedioActivity.class));
+                startActivity(new Intent(getActivity(), RapidtestActivity.class));
             }
         });
         test3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(getActivity(), VedioActivity.class));
+                startActivity(new Intent(getActivity(), RapidtestActivity.class));
             }
         });
     }

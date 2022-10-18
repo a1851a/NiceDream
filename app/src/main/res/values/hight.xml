@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="hight">
+
+        <item>請選擇</item>
+        <item>150公分以下</item>
+        <item>151~160公分</item>
+        <item>161~170公分</item>
+        <item>171~180公分</item>
+        <item>181~190公分</item>
+        <item>191公分以上</item>
+
+    </string-array>
+
+</resources>

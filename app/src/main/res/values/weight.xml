@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="weight">
+
+        <item>請選擇</item>
+        <item>40公斤以下</item>
+        <item>41~50公斤</item>
+        <item>51~60公斤</item>
+        <item>61~70公斤</item>
+        <item>71~80公斤</item>
+        <item>81~90公斤</item>
+        <item>91~100公斤</item>
+        <item>101公斤以上</item>
+
+    </string-array>
+
+</resources>

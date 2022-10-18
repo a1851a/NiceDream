@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="activitytime">
+
+        <item>請選擇</item>
+        <item>少於8小時</item>
+        <item>8~9小時</item>
+        <item>9~10小時</item>
+        <item>10~11小時</item>
+        <item>11~12小時</item>
+        <item>超過12小時</item>
+
+    </string-array>
+
+</resources>

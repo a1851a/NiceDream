@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="revenue">
+
+        <item>請選擇</item>
+        <item>0~540000</item>
+        <item>540001~1210000</item>
+        <item>1210001~2420000</item>
+        <item>2420001~4530000</item>
+        <item>4530001以上</item>
+
+    </string-array>
+
+</resources>

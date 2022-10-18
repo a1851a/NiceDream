@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="noise">
+
+        <item>請選擇</item>
+        <item>非常安靜</item>
+        <item>安靜</item>
+        <item>一點點安靜</item>
+        <item>一點點吵雜</item>
+        <item>吵雜</item>
+        <item>非常吵雜</item>
+
+    </string-array>
+
+</resources>
