@@ -169,7 +169,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp" />
 
-
                 <TextView
                 android:id="@+id/text_tired"
                 android:layout_width="match_parent"
@@ -204,7 +203,7 @@
                     android:min="1" />
 
                 <Button
-                android:id="@+id/submit"
+                android:id="@+id/submit2"
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="15dp"

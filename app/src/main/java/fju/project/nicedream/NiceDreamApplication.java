@@ -6,6 +6,8 @@ import java.util.Timer;
 
 public class NiceDreamApplication extends Application {
 
+    private static final String TAG = "NiceDreamApplication";
+
     private static Timer timer = null;
 
     public static Timer getTimer (){
@@ -15,4 +17,10 @@ public class NiceDreamApplication extends Application {
         return timer;
     }
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+
+    }
 }

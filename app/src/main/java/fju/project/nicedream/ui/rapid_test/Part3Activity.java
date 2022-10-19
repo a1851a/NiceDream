@@ -1,13 +1,19 @@
 package fju.project.nicedream.ui.rapid_test;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import fju.project.nicedream.MainActivity;
 import fju.project.nicedream.R;
 
 public class Part3Activity extends AppCompatActivity {
@@ -44,6 +50,21 @@ public class Part3Activity extends AppCompatActivity {
     TextView text_attentionnumber;
     @BindView(R.id.seekBarattention)
     SeekBar attention;
+    @BindView(R.id.spinnerhistory)
+    Spinner history;
+    @BindView(R.id.spinneryourhistory)
+    Spinner yourhistory;
+    @BindView(R.id.spinnerpressure)
+    Spinner pressure;
+    @BindView(R.id.spinnerhead)
+    Spinner head;
+    @BindView(R.id.spinnerdrug)
+    Spinner drug;
+    @BindView(R.id.spinnersurgery)
+    Spinner surgery;
+    @BindView(R.id.submit3)
+    Button submit3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -215,6 +236,23 @@ public class Part3Activity extends AppCompatActivity {
 
             }
         });
+    }
 
+    @OnClick(R.id.submit3)
+    public void onViwClicked(View view){
+        switch (view.getId()) {
+            case R.id.submit3:
+                if ("請選擇".equals(history.getSelectedItem().toString()) ||
+                        "請選擇".equals(yourhistory.getSelectedItem().toString()) ||
+                        "請選擇".equals(pressure.getSelectedItem().toString()) ||
+                        "請選擇".equals(head.getSelectedItem().toString()) ||
+                        "請選擇".equals(drug.getSelectedItem().toString()) ||
+                        "請選擇".equals(surgery.getSelectedItem().toString())
+                ){
+                    Toast.makeText(this,"未輸入完成",Toast.LENGTH_SHORT).show();
+                }
+
+                break;
+        }
     }
 }

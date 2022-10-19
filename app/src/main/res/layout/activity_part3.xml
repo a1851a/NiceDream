@@ -434,7 +434,7 @@
                     android:layout_height="50dp" />
 
                 <Button
-                    android:id="@+id/submit"
+                    android:id="@+id/submit3"
                     android:layout_width="200dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
