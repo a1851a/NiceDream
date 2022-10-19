@@ -21,7 +21,6 @@
         android:theme="@style/Theme.NiceDream"
         android:windowSoftInputMode="adjustPan"
         tools:targetApi="31">
-
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true"
@@ -61,7 +60,6 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -77,7 +75,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".ui.main.fragment.setting.article.ArticleActivity"
             android:exported="false"
@@ -86,7 +83,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".ui.main.fragment.setting.vedio.VedioActivity"
             android:exported="false"
@@ -95,7 +91,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".ui.main.fragment.setting.education.EducationActivity"
             android:exported="false"
@@ -104,7 +99,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".ui.main.fragment.setting.account.AccountActivity"
             android:exported="false"
@@ -113,7 +107,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".ui.main.fragment.setting.share.ShareActivity"
             android:exported="false"
@@ -122,7 +115,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".ui.rapid_test.RapidtestActivity"
             android:exported="false"
@@ -131,7 +123,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".ui.rapid_test.Part1Activity"
             android:exported="false"
@@ -140,7 +131,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".ui.rapid_test.Part2Activity"
             android:exported="false"
@@ -149,7 +139,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".ui.rapid_test.Part3Activity"
             android:exported="false"
@@ -158,7 +147,14 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
+        <activity
+            android:name=".ui.rapid_test.JudgeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
     </application>
 
 </manifest>
