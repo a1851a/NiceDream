@@ -1,21 +1,38 @@
 package fju.project.nicedream.data.util;
 
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
+import android.os.Process;
 import android.provider.Settings;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.PermissionChecker;
 
+import java.security.Permission;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import fju.project.nicedream.R;
 
 public class DeviceChecker {
+
+    public static final int RequestCameraPermission = 1;
+    public static final int RequestStoragePermission =2;
+
 
     private static final String TAG = "DeviceChecker";
 
@@ -61,5 +78,4 @@ public class DeviceChecker {
             return true;
         }
     }
-
 }

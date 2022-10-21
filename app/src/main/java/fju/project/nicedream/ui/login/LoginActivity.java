@@ -20,6 +20,8 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -36,6 +38,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import org.json.JSONObject;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -47,6 +51,7 @@ import butterknife.OnClick;
 import fju.project.nicedream.MainActivity;
 import fju.project.nicedream.R;
 import fju.project.nicedream.data.util.DeviceChecker;
+import fju.project.nicedream.ui.main.fragment.setting.account.AccountActivity;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -202,6 +207,13 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if (user != null){
+            Intent intent = new Intent();
+            intent.setClass(LoginActivity.this, AccountActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("Id",user.getUid());
+            bundle.putString("Email", user.getEmail());
+            bundle.putString("PhotoUrl",user.getPhotoUrl().toString());
+            //Toast.makeText(LoginActivity.this,user.getEmail(),Toast.LENGTH_SHORT).show();
             startActivity(new Intent(LoginActivity.this,MainActivity.class));
             LoginActivity.this.finish();
         }
@@ -222,6 +234,7 @@ public class LoginActivity extends AppCompatActivity {
             super.onActivityResult(requestCode, resultCode, data);
             mCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
+
     }
 
     //禁止使用返回鍵

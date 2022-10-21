@@ -130,6 +130,7 @@ public class Part1Activity extends AppCompatActivity {
                     Toast.makeText(this,"未輸入完成",Toast.LENGTH_SHORT).show();
                 }
                 else {
+
                     startActivity(new Intent(this, Part2Activity.class));
                 }
                 break;

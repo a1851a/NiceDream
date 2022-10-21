@@ -49,7 +49,7 @@
         android:layout_width="405dp"
         android:layout_height="60dp"
         android:backgroundTint="@color/light_gray"
-        android:text="個人帳號設定"
+        android:text="使用者照片設定"
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"

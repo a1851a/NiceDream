@@ -1,8 +1,12 @@
 package fju.project.nicedream;
 
 import android.app.Application;
+import android.database.sqlite.SQLiteDatabase;
 
+import java.sql.SQLData;
 import java.util.Timer;
+
+import fju.project.nicedream.data.db.DataBase;
 
 public class NiceDreamApplication extends Application {
 
@@ -17,10 +21,5 @@ public class NiceDreamApplication extends Application {
         return timer;
     }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
 
-
-    }
 }

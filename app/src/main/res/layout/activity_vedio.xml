@@ -47,11 +47,10 @@
         android:id="@+id/constarintLayout_vedio_titleBar_view"
         android:layout_width="405dp"
         android:layout_height="555dp"
-        android:layout_marginBottom="0dp"
         android:background="@color/light_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constarintLayout_vedio_titleBar">
 
