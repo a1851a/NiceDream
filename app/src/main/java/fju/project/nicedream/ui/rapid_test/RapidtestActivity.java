@@ -1,11 +1,13 @@
 package fju.project.nicedream.ui.rapid_test;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import butterknife.BindView;
@@ -42,12 +44,27 @@ public class RapidtestActivity extends AppCompatActivity {
                 startActivity(new Intent(this, Part1Activity.class));
                 break;
             case R.id.part2:
-                startActivity(new Intent(this, Part2Activity.class));
+                Dialog();
                 break;
             case R.id.part3:
-                startActivity(new Intent(this, Part3Activity.class));
+                Dialog();
                 break;
         }
     }
+
+    public void Dialog(){
+        AlertDialog.Builder Dialog =new AlertDialog.Builder(RapidtestActivity.this);
+        Dialog.setTitle("提示");
+        Dialog.setMessage("請從第一部分開始作答");
+        Dialog.setPositiveButton("我知道了", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(RapidtestActivity.this, Part1Activity.class));
+            }
+        });
+        Dialog.show();
+    }
+
+
 
 }
