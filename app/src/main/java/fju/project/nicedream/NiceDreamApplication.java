@@ -1,12 +1,10 @@
 package fju.project.nicedream;
 
 import android.app.Application;
-import android.database.sqlite.SQLiteDatabase;
 
-import java.sql.SQLData;
+import com.facebook.stetho.Stetho;
+
 import java.util.Timer;
-
-import fju.project.nicedream.data.db.DataBase;
 
 public class NiceDreamApplication extends Application {
 

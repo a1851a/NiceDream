@@ -1,7 +1,10 @@
 package fju.project.nicedream.ui.rapid_test;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,8 +19,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fju.project.nicedream.R;
+import fju.project.nicedream.data.db.NiceDreamDataBase;
 
 public class Part1Activity extends AppCompatActivity {
+
+    NiceDreamDataBase nicedreamDataBase;
+    SQLiteDatabase sqLiteDatabase;
+
+    private String date,time;
 
     @BindView(R.id.edit_name)
     TextView name;
@@ -47,6 +56,10 @@ public class Part1Activity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+        nicedreamDataBase = new NiceDreamDataBase(Part1Activity.this);
+
+        date=(""+ DateFormat.format("yyyy/MM/dd",System.currentTimeMillis()));
+
         ArrayAdapter adapter_gender = ArrayAdapter.createFromResource(this,R.array.gender, android.R.layout.simple_dropdown_item_1line);
         gender.setAdapter(adapter_gender);
         ArrayAdapter adapter_age = ArrayAdapter.createFromResource(this,R.array.age, android.R.layout.simple_dropdown_item_1line);
@@ -63,6 +76,7 @@ public class Part1Activity extends AppCompatActivity {
         gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
                 //Toast.makeText(view.getContext(),parent.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
             }
             @Override
@@ -130,10 +144,33 @@ public class Part1Activity extends AppCompatActivity {
                     Toast.makeText(this,"未輸入完成",Toast.LENGTH_SHORT).show();
                 }
                 else {
-
+                    add_part1();
                     startActivity(new Intent(this, Part2Activity.class));
                 }
                 break;
         }
     }
+
+    private void add_part1() {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("date",date);
+        contentValues.put("time",time);
+        contentValues.put("name", String.valueOf(name));
+        contentValues.put("gender",gender.getSelectedItem().toString());
+        contentValues.put("age",age.getSelectedItem().toString());
+        contentValues.put("job",job.getSelectedItem().toString());
+        contentValues.put("revenue",revenue.getSelectedItem().toString());
+        contentValues.put("hight",hight.getSelectedItem().toString());
+        contentValues.put("weight",weight.getSelectedItem().toString());
+        sqLiteDatabase = nicedreamDataBase.getWritableDatabase();
+        Long result = sqLiteDatabase.insert("part1",null,contentValues);
+        if (result != null){
+            Toast.makeText(this,"上傳成功",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this,"上傳失敗",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 }

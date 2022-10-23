@@ -4,12 +4,14 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -21,6 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fju.project.nicedream.R;
 import fju.project.nicedream.data.util.DeviceChecker;
+import fju.project.nicedream.ui.login.LoginActivity;
 import fju.project.nicedream.ui.rapid_test.RapidtestActivity;
 
 public class AccountActivity extends AppCompatActivity {
@@ -49,12 +52,12 @@ public class AccountActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        Bundle bundle = this.getIntent().getExtras();
-        if (bundle !=null){
-            String ID = bundle.getString("Id");
-            String Email = bundle.getString("Email");
-            String PhotoUrl = bundle.getString("PhotoUrl");
-        }
+        //Bundle bundle1 = this.getIntent().getExtras();
+        //String Id = bundle.getString("Id");
+        //String Email = bundle.getString("Email");
+        //String PhotoUrl = bundle1.getString("PhotoUrl");
+        //Toast.makeText(this,Id+Email+PhotoUrl,Toast.LENGTH_SHORT).show();
+
     }
 
     @OnClick({R.id.album,R.id.camera})
@@ -113,7 +116,6 @@ public class AccountActivity extends AppCompatActivity {
                             Uri uri = Uri.fromParts("package", getPackageName(), null);
                             intent.setData(uri);
                             startActivity(intent);
-                            finish();
                         }
                     });
                     AlbumPermissionDialog.show();
@@ -135,7 +137,6 @@ public class AccountActivity extends AppCompatActivity {
                             Uri uri = Uri.fromParts("package", getPackageName(), null);
                             intent.setData(uri);
                             startActivity(intent);
-                            finish();
                         }
                     });
                     CameraPermissionDialog.show();
@@ -144,4 +145,5 @@ public class AccountActivity extends AppCompatActivity {
                 break;
         }
     }
+
 }

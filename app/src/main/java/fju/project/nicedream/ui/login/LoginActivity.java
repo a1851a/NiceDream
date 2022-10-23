@@ -207,13 +207,15 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if (user != null){
-            Intent intent = new Intent();
+            /*Intent intent = new Intent();
             intent.setClass(LoginActivity.this, AccountActivity.class);
             Bundle bundle = new Bundle();
             bundle.putString("Id",user.getUid());
-            bundle.putString("Email", user.getEmail());
+            bundle.putString("Email",user.getEmail());
             bundle.putString("PhotoUrl",user.getPhotoUrl().toString());
-            //Toast.makeText(LoginActivity.this,user.getEmail(),Toast.LENGTH_SHORT).show();
+            intent.putExtras(bundle);
+            this.startActivity(intent);*/
+            //Toast.makeText(LoginActivity.this,user.getPhotoUrl().toString(),Toast.LENGTH_SHORT).show();
             startActivity(new Intent(LoginActivity.this,MainActivity.class));
             LoginActivity.this.finish();
         }

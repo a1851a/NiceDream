@@ -1,7 +1,10 @@
 package fju.project.nicedream.ui.rapid_test;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -16,8 +19,14 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fju.project.nicedream.MainActivity;
 import fju.project.nicedream.R;
+import fju.project.nicedream.data.db.NiceDreamDataBase;
 
 public class Part3Activity extends AppCompatActivity {
+
+    NiceDreamDataBase nicedreamDataBase;
+    SQLiteDatabase sqLiteDatabase;
+
+    private String date3;
 
     @BindView(R.id.text_tolitnumber)
     TextView text_tolitnumber;
@@ -77,6 +86,10 @@ public class Part3Activity extends AppCompatActivity {
         }
 
         ButterKnife.bind(this);
+
+        nicedreamDataBase = new NiceDreamDataBase(Part3Activity.this);
+
+        date3=(""+ DateFormat.format("yyyy/MM/dd",System.currentTimeMillis()));
 
         tolit.setProgress(1);
         text_tolitnumber.setText("1");
@@ -253,9 +266,37 @@ public class Part3Activity extends AppCompatActivity {
                     Toast.makeText(this,"未輸入完成",Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    add_part3();
                     startActivity(new Intent(this, JudgeActivity.class));
                 }
                 break;
+        }
+    }
+
+    private void add_part3() {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("date3",date3);
+        contentValues.put("tolit",tolit.toString());
+        contentValues.put("headache",headache.toString());
+        contentValues.put("shake",shake.toString());
+        contentValues.put("lazy",lazy.toString());
+        contentValues.put("dream",dream.toString());
+        contentValues.put("acholic",acholic.toString());
+        contentValues.put("dry",dry.toString());
+        contentValues.put("attention",attention.toString());
+        contentValues.put("history",history.getSelectedItem().toString());
+        contentValues.put("yourhistory",yourhistory.getSelectedItem().toString());
+        contentValues.put("pressure",pressure.getSelectedItem().toString());
+        contentValues.put("head",head.getSelectedItem().toString());
+        contentValues.put("drug",drug.getSelectedItem().toString());
+        contentValues.put("surgery",surgery.getSelectedItem().toString());
+        sqLiteDatabase = nicedreamDataBase.getWritableDatabase();
+        Long result = sqLiteDatabase.insert("part3",null,contentValues);
+        if (result != null){
+            Toast.makeText(this,"上傳成功",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this,"上傳失敗",Toast.LENGTH_SHORT).show();
         }
     }
 }
