@@ -1,5 +1,7 @@
 package fju.project.nicedream.ui.rapid_test;
 
+import static android.graphics.Insets.add;
+
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,17 +17,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.nio.charset.StandardCharsets;
+import java.sql.SQLData;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fju.project.nicedream.R;
-import fju.project.nicedream.data.db.NiceDreamDataBase;
+import fju.project.nicedream.data.db.SQLdata;
 
 public class Part1Activity extends AppCompatActivity {
 
-    NiceDreamDataBase nicedreamDataBase;
-    SQLiteDatabase sqLiteDatabase;
-
+    public SQLdata DH = null;
+    public SQLiteDatabase db;
     private String date,time;
 
     @BindView(R.id.edit_name)
@@ -56,9 +60,13 @@ public class Part1Activity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        nicedreamDataBase = new NiceDreamDataBase(Part1Activity.this);
+        DH = new SQLdata(this);
+        //讀取資料庫
+        db = DH.getWritableDatabase();
+        //add("123");
 
         date=(""+ DateFormat.format("yyyy/MM/dd",System.currentTimeMillis()));
+        time=(""+ DateFormat.format("HH:mm",System.currentTimeMillis()));
 
         ArrayAdapter adapter_gender = ArrayAdapter.createFromResource(this,R.array.gender, android.R.layout.simple_dropdown_item_1line);
         gender.setAdapter(adapter_gender);
@@ -144,33 +152,25 @@ public class Part1Activity extends AppCompatActivity {
                     Toast.makeText(this,"未輸入完成",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    add_part1();
+                    add(date,time,name.getText().toString(),gender.getSelectedItem().toString(),age.getSelectedItem().toString(),job.getSelectedItem().toString(),revenue.getSelectedItem().toString(),hight.getSelectedItem().toString(),weight.getSelectedItem().toString());
                     startActivity(new Intent(this, Part2Activity.class));
                 }
                 break;
         }
     }
 
-    private void add_part1() {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("date",date);
-        contentValues.put("time",time);
-        contentValues.put("name", String.valueOf(name));
-        contentValues.put("gender",gender.getSelectedItem().toString());
-        contentValues.put("age",age.getSelectedItem().toString());
-        contentValues.put("job",job.getSelectedItem().toString());
-        contentValues.put("revenue",revenue.getSelectedItem().toString());
-        contentValues.put("hight",hight.getSelectedItem().toString());
-        contentValues.put("weight",weight.getSelectedItem().toString());
-        sqLiteDatabase = nicedreamDataBase.getWritableDatabase();
-        Long result = sqLiteDatabase.insert("part1",null,contentValues);
-        if (result != null){
-            Toast.makeText(this,"上傳成功",Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(this,"上傳失敗",Toast.LENGTH_SHORT).show();
-        }
+    private void add(String date,String time,String name,String gender,String age,String job,String revenue,String hight,String weight) {
+        ContentValues values = new ContentValues();
+        values.put("date",date);
+        values.put("time",time);
+        values.put("name", name);
+        values.put("gender", gender.getBytes(StandardCharsets.UTF_8));
+        values.put("age", age.getBytes(StandardCharsets.UTF_8));
+        values.put("job", job.getBytes(StandardCharsets.UTF_8));
+        values.put("revenue", revenue.getBytes(StandardCharsets.UTF_8));
+        values.put("hight", hight.getBytes(StandardCharsets.UTF_8));
+        values.put("weight", weight.getBytes(StandardCharsets.UTF_8));
+        db.insert("test",null,values);
     }
-
 
 }
