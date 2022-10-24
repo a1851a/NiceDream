@@ -23,6 +23,7 @@ public class SQLdata extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        //第一部分
         String SQL="CREATE TABLE IF NOT EXISTS "+TB+"(id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "date VARCHAR(10),time VARCHAR(5),name VARCHAR(50),gender VARCHAR(3),age VARCHAR(20),job VARCHAR(20),revenue VARCHAR(20),hight VARCHAR(20),weight VARCHAR(20))";
         db.execSQL(SQL);

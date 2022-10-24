@@ -169,7 +169,7 @@ public class Part1Activity extends AppCompatActivity {
     }
 
     //增加第一部份資料
-    private void add(String date,String time,String name,String gender,String age,String job,String revenue,String hight,String weight) {
+    private void add(String date,String time,String name,String genderanswer,String age,String job,String revenue,String hight,String weight) {
         ContentValues values = new ContentValues();
         values.put("date",date);
         values.put("time",time);
