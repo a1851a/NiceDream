@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -18,10 +19,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fju.project.nicedream.R;
+import fju.project.nicedream.data.db.SQLdata;
 
 public class Part2Activity extends AppCompatActivity {
 
-    private String date2;
+    public SQLdata DH = null;
+    public SQLiteDatabase db;
 
     @BindView(R.id.spinnersleepstarttime)
     Spinner sleepstarttime;
@@ -53,8 +56,9 @@ public class Part2Activity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-
-        date2=(""+ DateFormat.format("yyyy/MM/dd",System.currentTimeMillis()));
+       // DH = new SQLdata(this);
+        //讀取資料庫
+       // db = DH.getWritableDatabase();
 
         tired.setProgress(1);
         text_tirednumber.setText("1");
@@ -98,4 +102,11 @@ public class Part2Activity extends AppCompatActivity {
         }
     }
 
+    //禁止使用返回鍵
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            event.startTracking();
+        }
+        return false;
+    }
 }

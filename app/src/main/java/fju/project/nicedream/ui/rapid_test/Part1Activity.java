@@ -31,6 +31,8 @@ public class Part1Activity extends AppCompatActivity {
     public SQLdata DH = null;
     public SQLiteDatabase db;
     private String date,time;
+    private int y,x0=0,x1=0;
+    private int genderanswer = 0;
 
     @BindView(R.id.edit_name)
     TextView name;
@@ -63,7 +65,6 @@ public class Part1Activity extends AppCompatActivity {
         DH = new SQLdata(this);
         //讀取資料庫
         db = DH.getWritableDatabase();
-        //add("123");
 
         date=(""+ DateFormat.format("yyyy/MM/dd",System.currentTimeMillis()));
         time=(""+ DateFormat.format("HH:mm",System.currentTimeMillis()));
@@ -84,7 +85,15 @@ public class Part1Activity extends AppCompatActivity {
         gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                if ("請選擇".equals(gender.getSelectedItem().toString())){
+                    genderanswer = 0;
+                }
+                else if("男性".equals(gender.getSelectedItem().toString())){
+                    genderanswer = 1;
+                }
+                else {
+                    genderanswer = 2;
+                }
                 //Toast.makeText(view.getContext(),parent.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
             }
             @Override
@@ -159,17 +168,18 @@ public class Part1Activity extends AppCompatActivity {
         }
     }
 
+    //增加第一部份資料
     private void add(String date,String time,String name,String gender,String age,String job,String revenue,String hight,String weight) {
         ContentValues values = new ContentValues();
         values.put("date",date);
         values.put("time",time);
         values.put("name", name);
-        values.put("gender", gender.getBytes(StandardCharsets.UTF_8));
-        values.put("age", age.getBytes(StandardCharsets.UTF_8));
-        values.put("job", job.getBytes(StandardCharsets.UTF_8));
-        values.put("revenue", revenue.getBytes(StandardCharsets.UTF_8));
-        values.put("hight", hight.getBytes(StandardCharsets.UTF_8));
-        values.put("weight", weight.getBytes(StandardCharsets.UTF_8));
+        values.put("gender", genderanswer);
+        values.put("age", age.getBytes(StandardCharsets.UTF_8).toString());
+        values.put("job", job.getBytes(StandardCharsets.UTF_8).toString());
+        values.put("revenue", revenue.getBytes(StandardCharsets.UTF_8).toString());
+        values.put("hight", hight.getBytes(StandardCharsets.UTF_8).toString());
+        values.put("weight", weight.getBytes(StandardCharsets.UTF_8).toString());
         db.insert("test",null,values);
     }
 

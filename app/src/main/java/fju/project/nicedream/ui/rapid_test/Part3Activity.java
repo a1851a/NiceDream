@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -18,10 +19,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fju.project.nicedream.R;
+import fju.project.nicedream.data.db.SQLdata;
 
 public class Part3Activity extends AppCompatActivity {
 
-    private String date3;
+    public SQLdata DH = null;
+    public SQLiteDatabase db;
+
+    // DH = new SQLdata(this);
+    //讀取資料庫
+    // db = DH.getWritableDatabase();
 
     @BindView(R.id.text_tolitnumber)
     TextView text_tolitnumber;
@@ -81,8 +88,6 @@ public class Part3Activity extends AppCompatActivity {
         }
 
         ButterKnife.bind(this);
-
-        date3=(""+ DateFormat.format("yyyy/MM/dd",System.currentTimeMillis()));
 
         tolit.setProgress(1);
         text_tolitnumber.setText("1");
@@ -265,4 +270,11 @@ public class Part3Activity extends AppCompatActivity {
         }
     }
 
+    //禁止使用返回鍵
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            event.startTracking();
+        }
+        return false;
+    }
 }
