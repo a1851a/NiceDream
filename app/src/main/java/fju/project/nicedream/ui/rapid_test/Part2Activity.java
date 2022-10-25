@@ -261,7 +261,7 @@ public class Part2Activity extends AppCompatActivity {
                     Toast.makeText(this,"未輸入完成",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    add(sleepstarttimeanswer,sleeptimeanswer,activitytimeanswer,phonetimeanswer,noiseanswer,comfortableanswer,text_tirednumber.toString());
+                    add(sleepstarttimeanswer,sleeptimeanswer,activitytimeanswer,phonetimeanswer,noiseanswer,comfortableanswer,text_tirednumber.getText().toString());
                     startActivity(new Intent(this, Part3Activity.class));
                 }
                 break;

@@ -21,6 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fju.project.nicedream.R;
 import fju.project.nicedream.data.db.SQLdata;
+import fju.project.nicedream.ui.main.fragment.home.HomeFragment;
 
 public class Part3Activity extends AppCompatActivity {
 
@@ -324,7 +325,7 @@ public class Part3Activity extends AppCompatActivity {
                     Toast.makeText(this,"未輸入完成",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    add(text_tolitnumber.toString(),text_headachenumber.toString(),text_shakenumber.toString(),text_lazynumber.toString(),text_dreamnumber.toString(),text_acholicnumber.toString(),text_drynumber.toString(),text_attentionnumber.toString(),historyanswer,yourhistoryanswer,pressureanswer,headanswer,druganswer,surgeryanswer);
+                    add(text_tolitnumber.getText().toString(),text_headachenumber.getText().toString(),text_shakenumber.getText().toString(),text_lazynumber.getText().toString(),text_dreamnumber.getText().toString(),text_acholicnumber.getText().toString(),text_drynumber.getText().toString(),text_attentionnumber.getText().toString(),historyanswer,yourhistoryanswer,pressureanswer,headanswer,druganswer,surgeryanswer);
                     startActivity(new Intent(this, JudgeActivity.class));
                 }
                 break;
@@ -354,7 +355,7 @@ public class Part3Activity extends AppCompatActivity {
     //禁止使用返回鍵
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            event.startTracking();
+            this.finish();
         }
         return false;
     }
