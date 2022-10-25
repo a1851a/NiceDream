@@ -13,8 +13,10 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/judge_date"
@@ -33,7 +35,7 @@
             android:id="@+id/question"
             android:layout_width="413dp"
             android:layout_height="55dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:text="您是否患有睡眠中止症："
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -51,7 +53,7 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="30sp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,10 +65,128 @@
             android:layout_width="117dp"
             android:layout_height="134dp"
             android:layout_marginTop="50dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loading" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_good"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/question">
+
+            <TextView
+                android:id="@+id/health"
+                android:layout_width="413dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="40dp"
+                android:text="恭喜您，非常健康!"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="35sp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/good"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:padding="0dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_good_mood"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/health" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_bad"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/question">
+
+            <TextView
+                android:id="@+id/unhealth"
+                android:layout_width="413dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="40dp"
+                android:text="我猜您需要一些幫助"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="35sp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/bad"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="27dp"
+                android:padding="0dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_bad_mood"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/unhealth" />
+
+            <Button
+                android:id="@+id/judge_article"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="34dp"
+                android:backgroundTint="@color/light_gray"
+                android:text="文章推薦"
+                android:textSize="20dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toStartOf="@+id/bad"
+                app:layout_constraintTop_toBottomOf="@+id/unhealth" />
+
+            <Button
+                android:id="@+id/judge_vedio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="34dp"
+                android:backgroundTint="@color/light_gray"
+                android:text="影片推薦"
+                android:textSize="20dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toStartOf="@+id/bad"
+                app:layout_constraintTop_toBottomOf="@+id/judge_article" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/text_history"
+            android:layout_width="413dp"
+            android:layout_height="45dp"
+            android:text="點擊以查看當天測驗數據"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

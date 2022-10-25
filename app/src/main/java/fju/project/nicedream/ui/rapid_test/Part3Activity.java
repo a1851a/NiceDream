@@ -355,7 +355,7 @@ public class Part3Activity extends AppCompatActivity {
     //禁止使用返回鍵
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            this.finish();
+            event.startTracking();
         }
         return false;
     }

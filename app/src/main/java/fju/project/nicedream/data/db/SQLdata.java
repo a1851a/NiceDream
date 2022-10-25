@@ -14,6 +14,7 @@ public class SQLdata extends SQLiteOpenHelper {
     private final static String TB1 = "test1";
     private final static String TB2 = "test2";
     private final static String TB3 = "test3";
+    private final static String TB4 = "outcome";
     //版本
     private final static int vs = 1;
 
@@ -36,6 +37,11 @@ public class SQLdata extends SQLiteOpenHelper {
         String SQL3="CREATE TABLE IF NOT EXISTS "+TB3+"(id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "toilt INTEGER,headache INTEGER,shake INTEGER,lazy INTEGER,dream INTEGER,acholic INTEGER,dry INTEGER,attention INTEGER,history VARCHAR(20),yourhistory VARCHAR(20),pressure VARCHAR(20),head VARCHAR(20),drug VARCHAR(20),surgery VARCHAR(20))";
         db.execSQL(SQL3);
+
+        String SQL4="CREATE TABLE IF NOT EXISTS "+TB4+"(id INTEGER PRIMARY KEY AUTOINCREMENT,outcome VARCHAR(5))";
+        db.execSQL(SQL4);
+
+
     }
 
     @Override
@@ -43,8 +49,10 @@ public class SQLdata extends SQLiteOpenHelper {
         String SQL1 = "DROP TABLE "+TB1;
         String SQL2 = "DROP TABLE "+TB2;
         String SQL3 = "DROP TABLE "+TB3;
+        String SQL4 = "DROP TABLE "+TB4;
         db.execSQL(SQL1);
         db.execSQL(SQL2);
         db.execSQL(SQL3);
+        db.execSQL(SQL4);
     }
 }

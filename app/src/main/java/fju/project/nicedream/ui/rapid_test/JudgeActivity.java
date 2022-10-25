@@ -27,6 +27,8 @@ public class JudgeActivity extends AppCompatActivity {
     ProgressBar image_loading;
 
     private TimerTask timerTask;
+    private int y1,y2,y3;
+    private int x1,x2,x3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,8 @@ public class JudgeActivity extends AppCompatActivity {
                 loading.setVisibility(View.INVISIBLE);
                 image_loading.setVisibility(View.INVISIBLE);
                 //判斷
+                //test
+
             }
         },5000);
 
