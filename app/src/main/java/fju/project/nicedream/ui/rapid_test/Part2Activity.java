@@ -261,7 +261,7 @@ public class Part2Activity extends AppCompatActivity {
                     Toast.makeText(this,"未輸入完成",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    add(sleepstarttimeanswer,sleeptimeanswer,activitytimeanswer,phonetimeanswer,noiseanswer,comfortableanswer, Integer.valueOf(text_tirednumber.toString()));
+                    add(sleepstarttimeanswer,sleeptimeanswer,activitytimeanswer,phonetimeanswer,noiseanswer,comfortableanswer,text_tirednumber.toString());
                     startActivity(new Intent(this, Part3Activity.class));
                 }
                 break;
@@ -269,7 +269,7 @@ public class Part2Activity extends AppCompatActivity {
     }
 
     //增加第二部份資料
-    private void add(String sleepstarttimeanswer,String sleeptimeanswer,String activitytimeanswer,String phonetimeanswer,String noiseanswer,String comfortableanswer,Integer text_tirednumber) {
+    private void add(String sleepstarttimeanswer,String sleeptimeanswer,String activitytimeanswer,String phonetimeanswer,String noiseanswer,String comfortableanswer,String text_tirednumber) {
         ContentValues values = new ContentValues();
         values.put("sleepstarttime",sleepstarttimeanswer);
         values.put("sleeptime",sleeptimeanswer);
@@ -278,7 +278,7 @@ public class Part2Activity extends AppCompatActivity {
         values.put("noise", noiseanswer);
         values.put("comfortable", comfortableanswer);
         values.put("tired", text_tirednumber);
-        db.insert("test",null,values);
+        db.insert("test2",null,values);
     }
 
     //禁止使用返回鍵

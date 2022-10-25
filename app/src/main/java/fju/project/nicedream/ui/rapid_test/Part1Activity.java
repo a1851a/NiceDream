@@ -294,7 +294,7 @@ public class Part1Activity extends AppCompatActivity {
         values.put("revenue", revenueanswer);
         values.put("hight", hightanswer);
         values.put("weight", weightanswer);
-        db.insert("test",null,values);
+        db.insert("test1",null,values);
     }
 
     //禁止使用返回鍵

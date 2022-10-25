@@ -324,7 +324,7 @@ public class Part3Activity extends AppCompatActivity {
                     Toast.makeText(this,"未輸入完成",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    add(Integer.valueOf(text_tolitnumber.toString()),Integer.valueOf(text_headachenumber.toString()),Integer.valueOf(text_shakenumber.toString()),Integer.valueOf(text_lazynumber.toString()),Integer.valueOf(text_dreamnumber.toString()),Integer.valueOf(text_acholicnumber.toString()),Integer.valueOf(text_drynumber.toString()),Integer.valueOf(text_attentionnumber.toString()),historyanswer,yourhistoryanswer,pressureanswer,headanswer,druganswer,surgeryanswer);
+                    add(text_tolitnumber.toString(),text_headachenumber.toString(),text_shakenumber.toString(),text_lazynumber.toString(),text_dreamnumber.toString(),text_acholicnumber.toString(),text_drynumber.toString(),text_attentionnumber.toString(),historyanswer,yourhistoryanswer,pressureanswer,headanswer,druganswer,surgeryanswer);
                     startActivity(new Intent(this, JudgeActivity.class));
                 }
                 break;
@@ -332,7 +332,7 @@ public class Part3Activity extends AppCompatActivity {
     }
 
     //增加第三部份資料
-    private void add(Integer text_tolitnumber,Integer text_headachenumber,Integer text_shakenumber,Integer text_lazynumber,Integer text_dreamnumber,Integer text_acholicnumber,Integer text_drynumber,Integer text_attentionnumber,String historyanswer,String yourhistoryanswer,String pressureanswer,String headanswer,String druganswer,String surgeryanswer) {
+    private void add(String text_tolitnumber,String text_headachenumber,String text_shakenumber,String text_lazynumber,String text_dreamnumber,String text_acholicnumber,String text_drynumber,String text_attentionnumber,String historyanswer,String yourhistoryanswer,String pressureanswer,String headanswer,String druganswer,String surgeryanswer) {
         ContentValues values = new ContentValues();
         values.put("toilt",text_tolitnumber);
         values.put("headache",text_headachenumber);
@@ -348,7 +348,7 @@ public class Part3Activity extends AppCompatActivity {
         values.put("head", headanswer);
         values.put("drug", druganswer);
         values.put("surgery", surgeryanswer);
-        db.insert("test",null,values);
+        db.insert("test3",null,values);
     }
 
     //禁止使用返回鍵
