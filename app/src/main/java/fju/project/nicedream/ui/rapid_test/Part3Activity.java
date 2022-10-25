@@ -26,6 +26,7 @@ public class Part3Activity extends AppCompatActivity {
 
     public SQLdata DH = null;
     public SQLiteDatabase db;
+    private String historyanswer,yourhistoryanswer,pressureanswer,headanswer,druganswer,surgeryanswer;
 
     @BindView(R.id.text_tolitnumber)
     TextView text_tolitnumber;
@@ -98,15 +99,11 @@ public class Part3Activity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 text_tolitnumber.setText(Integer.toString(progress));
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
@@ -118,15 +115,11 @@ public class Part3Activity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 text_headachenumber.setText(Integer.toString(progress));
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
@@ -138,15 +131,11 @@ public class Part3Activity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 text_shakenumber.setText(Integer.toString(progress));
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
@@ -158,15 +147,11 @@ public class Part3Activity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 text_lazynumber.setText(Integer.toString(progress));
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
@@ -178,15 +163,11 @@ public class Part3Activity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 text_dreamnumber.setText(Integer.toString(progress));
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
@@ -198,15 +179,11 @@ public class Part3Activity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 text_tolitnumber.setText(Integer.toString(progress));
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
@@ -218,15 +195,11 @@ public class Part3Activity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 text_drynumber.setText(Integer.toString(progress));
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
@@ -238,87 +211,101 @@ public class Part3Activity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 text_attentionnumber.setText(Integer.toString(progress));
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
         history.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                if ("有".equals(history.getSelectedItem().toString())){
+                    historyanswer = "有";
+                }
+                else {
+                    historyanswer = "無";
+                }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
         yourhistory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                if ("有".equals(yourhistory.getSelectedItem().toString())){
+                    yourhistoryanswer = "有";
+                }
+                else {
+                    yourhistoryanswer = "無";
+                }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
         pressure.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                if ("有".equals(pressure.getSelectedItem().toString())){
+                    pressureanswer = "有";
+                }
+                else {
+                    pressureanswer = "無";
+                }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
         head.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                if ("有".equals(head.getSelectedItem().toString())){
+                    headanswer = "有";
+                }
+                else {
+                    headanswer = "無";
+                }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
         drug.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                if ("有".equals(drug.getSelectedItem().toString())){
+                    druganswer = "有";
+                }
+                else {
+                    druganswer = "無";
+                }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
         surgery.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                if ("有".equals(surgery.getSelectedItem().toString())){
+                    surgeryanswer = "有";
+                }
+                else {
+                    surgeryanswer = "無";
+                }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
     }
@@ -337,10 +324,31 @@ public class Part3Activity extends AppCompatActivity {
                     Toast.makeText(this,"未輸入完成",Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    add(Integer.valueOf(text_tolitnumber.toString()),Integer.valueOf(text_headachenumber.toString()),Integer.valueOf(text_shakenumber.toString()),Integer.valueOf(text_lazynumber.toString()),Integer.valueOf(text_dreamnumber.toString()),Integer.valueOf(text_acholicnumber.toString()),Integer.valueOf(text_drynumber.toString()),Integer.valueOf(text_attentionnumber.toString()),historyanswer,yourhistoryanswer,pressureanswer,headanswer,druganswer,surgeryanswer);
                     startActivity(new Intent(this, JudgeActivity.class));
                 }
                 break;
         }
+    }
+
+    //增加第三部份資料
+    private void add(Integer text_tolitnumber,Integer text_headachenumber,Integer text_shakenumber,Integer text_lazynumber,Integer text_dreamnumber,Integer text_acholicnumber,Integer text_drynumber,Integer text_attentionnumber,String historyanswer,String yourhistoryanswer,String pressureanswer,String headanswer,String druganswer,String surgeryanswer) {
+        ContentValues values = new ContentValues();
+        values.put("toilt",text_tolitnumber);
+        values.put("headache",text_headachenumber);
+        values.put("shake", text_shakenumber);
+        values.put("lazy", text_lazynumber);
+        values.put("dream", text_dreamnumber);
+        values.put("acholic", text_acholicnumber);
+        values.put("dry", text_drynumber);
+        values.put("attention", text_attentionnumber);
+        values.put("history", historyanswer);
+        values.put("yourhistory", yourhistoryanswer);
+        values.put("pressure", pressureanswer);
+        values.put("head", headanswer);
+        values.put("drug", druganswer);
+        values.put("surgery", surgeryanswer);
+        db.insert("test",null,values);
     }
 
     //禁止使用返回鍵
