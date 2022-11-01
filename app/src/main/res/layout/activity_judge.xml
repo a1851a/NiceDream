@@ -42,38 +42,38 @@
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/judge_date" />
+            app:layout_constraintTop_toBottomOf="@+id/judge_date"/>
 
         <TextView
             android:id="@+id/loading"
             android:layout_width="413dp"
             android:layout_height="55dp"
-            android:layout_marginTop="50dp"
-            android:text="診斷中..."
+            android:layout_marginTop="40dp"
+            android:text="判斷中..."
+            android:visibility="visible"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="30sp"
-            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/question" />
+            app:layout_constraintTop_toBottomOf="@+id/question"/>
 
         <ProgressBar
             android:id="@+id/progressBar"
-            style="?android:attr/progress"
-            android:layout_width="117dp"
-            android:layout_height="134dp"
-            android:layout_marginTop="50dp"
-            android:visibility="invisible"
+            style="?android:attr/progressBarStyle"
+            android:visibility="visible"
+            android:layout_width="80dp"
+            android:layout_height="81dp"
+            android:layout_marginTop="150dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loading" />
+            app:layout_constraintTop_toBottomOf="@+id/question" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main_good"
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +88,6 @@
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="35sp"
-                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +101,6 @@
                 android:padding="0dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_good_mood"
-                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
@@ -114,6 +112,7 @@
             android:id="@+id/main_bad"
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -128,7 +127,6 @@
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="35sp"
-                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +141,6 @@
                 android:padding="0dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_bad_mood"
-                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/unhealth" />
 
@@ -153,10 +150,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="34dp"
-                android:backgroundTint="@color/light_gray"
+                android:backgroundTint="@color/grey"
                 android:text="文章推薦"
                 android:textSize="20dp"
-                android:visibility="invisible"
                 app:layout_constraintEnd_toStartOf="@+id/bad"
                 app:layout_constraintTop_toBottomOf="@+id/unhealth" />
 
@@ -166,28 +162,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="34dp"
-                android:backgroundTint="@color/light_gray"
+                android:backgroundTint="@color/grey"
                 android:text="影片推薦"
                 android:textSize="20dp"
-                android:visibility="invisible"
                 app:layout_constraintEnd_toStartOf="@+id/bad"
                 app:layout_constraintTop_toBottomOf="@+id/judge_article" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/text_history"
+            android:id="@+id/judge_history"
             android:layout_width="413dp"
             android:layout_height="45dp"
-            android:text="點擊以查看當天測驗數據"
-            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible"
+            android:text="@string/data"
+            android:textAlignment="textEnd"
             android:textColor="@color/white"
             android:textSize="25sp"
-            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
-
+            app:layout_constraintTop_toBottomOf="@+id/main_good" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

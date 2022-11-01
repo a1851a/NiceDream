@@ -3,11 +3,8 @@
     <string name="please_check_network">Please check network status</string>
     <string name="please_wait_init">Initializing, please try again later</string>
     <string name="loading">loading...</string>
-    <string name="open_internet">Open internet</string>
-    <string name="cancel">Cancel</string>
-    <string name="got_it">I got it</string>
-    <string name="click_again_to_exit">Click again to exit</string>
-    <string name="login_failed">login_failed</string>
+    <string name="chart"><u>圖表</u></string>
+    <string name="data"><u>查看測驗數據</u></string>
 
     <string name="facebook_app_id">1236672693855922</string>
     <string name="fb_login_protocol_scheme">fb1236672693855922</string>

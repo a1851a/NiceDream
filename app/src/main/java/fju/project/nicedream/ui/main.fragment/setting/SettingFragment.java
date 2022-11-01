@@ -14,7 +14,6 @@ import android.widget.Button;
 
 import fju.project.nicedream.R;
 import fju.project.nicedream.data.util.DeviceChecker;
-import fju.project.nicedream.ui.main.fragment.setting.account.AccountActivity;
 import fju.project.nicedream.ui.main.fragment.setting.article.ArticleActivity;
 import fju.project.nicedream.ui.main.fragment.setting.education.EducationActivity;
 import fju.project.nicedream.ui.main.fragment.setting.share.ShareActivity;
@@ -37,7 +36,6 @@ public class SettingFragment extends Fragment {
 
         Button share = getActivity().findViewById(R.id.share);
         Button education = getActivity().findViewById(R.id.education);
-        Button account_edit = getActivity().findViewById(R.id.account_edit);
         Button article = getActivity().findViewById(R.id.article);
         Button vedio = getActivity().findViewById(R.id.vedio);
 
@@ -60,17 +58,6 @@ public class SettingFragment extends Fragment {
                 }
                 else {
                     startActivity(new Intent(getActivity(), EducationActivity.class));
-                }
-            }
-        });
-        account_edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!DeviceChecker.CheckInternet(getActivity())){
-                    return;
-                }
-                else {
-                    startActivity(new Intent(getActivity(), AccountActivity.class));
                 }
             }
         });

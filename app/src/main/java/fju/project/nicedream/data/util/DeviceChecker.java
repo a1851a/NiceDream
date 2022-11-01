@@ -57,15 +57,15 @@ public class DeviceChecker {
             } else {
                 Log.d(TAG, "checkInternet: " + "Not connected");
                 AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-                dialog.setTitle(R.string.open_internet);
+                dialog.setTitle("請開啟網路");
                 dialog.setMessage("若未開啟，則無法使用此功能。");
-                dialog.setPositiveButton(R.string.got_it,new DialogInterface.OnClickListener() {
+                dialog.setPositiveButton("我知道了",new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface paramDialogInterface, int paramInt) {
                         // TODO Auto-generated method stub
                     }
                 });
-                dialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface paramDialogInterface, int paramInt) {
                         // TODO Auto-generated method stub

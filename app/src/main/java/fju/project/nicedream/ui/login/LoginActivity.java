@@ -51,7 +51,6 @@ import butterknife.OnClick;
 import fju.project.nicedream.MainActivity;
 import fju.project.nicedream.R;
 import fju.project.nicedream.data.util.DeviceChecker;
-import fju.project.nicedream.ui.main.fragment.setting.account.AccountActivity;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -215,7 +214,6 @@ public class LoginActivity extends AppCompatActivity {
             bundle.putString("PhotoUrl",user.getPhotoUrl().toString());
             intent.putExtras(bundle);
             this.startActivity(intent);*/
-            //Toast.makeText(LoginActivity.this,user.getPhotoUrl().toString(),Toast.LENGTH_SHORT).show();
             startActivity(new Intent(LoginActivity.this,MainActivity.class));
             LoginActivity.this.finish();
         }
