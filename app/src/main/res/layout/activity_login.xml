@@ -41,18 +41,18 @@
         android:padding="4dp"
         android:scaleType="centerInside"
         android:src="@drawable/ic_login_fb"
-        app:layout_constraintBottom_toTopOf="@+id/login_line"
+        app:layout_constraintBottom_toTopOf="@+id/login_no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/login_line"
+        android:id="@+id/login_no"
         android:layout_width="407dp"
         android:layout_height="81dp"
         android:layout_marginTop="464dp"
         android:padding="4dp"
         android:scaleType="centerInside"
-        android:src="@drawable/ic_login_line"
+        android:src="@drawable/ic_noaccount"
         app:layout_constraintBottom_toTopOf="@+id/login_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

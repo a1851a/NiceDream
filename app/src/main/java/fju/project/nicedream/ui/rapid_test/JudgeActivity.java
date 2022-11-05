@@ -23,6 +23,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fju.project.nicedream.R;
 import fju.project.nicedream.ui.main.fragment.setting.article.ArticleActivity;
+import fju.project.nicedream.ui.main.fragment.setting.share.ShareActivity;
+import fju.project.nicedream.ui.main.fragment.setting.vedio.VedioActivity;
 
 public class JudgeActivity extends AppCompatActivity {
 
@@ -81,6 +83,18 @@ public class JudgeActivity extends AppCompatActivity {
                 show();
             }
         },3000);
+    }
+
+    @OnClick({R.id.judge_article,R.id.judge_vedio})
+    public void onViwClicked(View view){
+        switch (view.getId()) {
+            case R.id.judge_article:
+                startActivity(new Intent(this, ArticleActivity.class));
+                break;
+            case R.id.judge_vedio:
+                startActivity(new Intent(this, VedioActivity.class));
+                break;
+        }
     }
 
     private void show(){
