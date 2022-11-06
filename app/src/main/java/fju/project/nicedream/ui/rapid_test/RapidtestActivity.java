@@ -708,7 +708,6 @@ public class RapidtestActivity extends AppCompatActivity {
                             ,sleepstarttimeanswer,sleeptimeanswer,activitytimeanswer,phonetimeanswer,noiseanswer,comfortableanswer
                             ,text_tirednumber.getText().toString(),text_tolitnumber.getText().toString(),text_headachenumber.getText().toString(),text_lazynumber.getText().toString(),text_dreamnumber.getText().toString(),text_acholicnumber.getText().toString(),text_drynumber.getText().toString(),text_attentionnumber.getText().toString(),text_headachenumberprogress.getText().toString(),outcome);
 
-
                     Intent intent = new Intent();
                     intent.setClass(RapidtestActivity.this,JudgeActivity.class);
                     Bundle bundle1 = new Bundle();

@@ -169,20 +169,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/judge_article" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/judge_history"
-            android:layout_width="413dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="20dp"
-            android:visibility="invisible"
-            android:text="@string/data"
-            android:textAlignment="textEnd"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_good" />
+        
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

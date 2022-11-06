@@ -1,4 +1,4 @@
-package fju.project.nicedream.ui.record;
+package fju.project.nicedream.ui.chart;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -301,7 +301,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="10dp"
-                    android:text="起床頭痛:(1為最常)"
+                    android:text="起床頭痛程度:(1為最痛)"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="25sp"

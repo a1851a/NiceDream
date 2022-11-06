@@ -15,7 +15,6 @@ public class SQLdata extends SQLiteOpenHelper {
     //版本
     private final static int vs = 1;
 
-
     public SQLdata(Context context) {
         //super(context, name, factory, version);
         super(context, DB, null, vs);

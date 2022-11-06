@@ -10,14 +10,19 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.CalendarView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.resources.TextAppearance;
+
+import butterknife.BindView;
 import fju.project.nicedream.R;
-import fju.project.nicedream.ui.record.ChartActivity;
+import fju.project.nicedream.ui.chart.ChartActivity;
 
 public class RecordFragment extends Fragment {
 
+    public String date;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -38,5 +43,25 @@ public class RecordFragment extends Fragment {
                 startActivity(new Intent(getActivity(), ChartActivity.class));
             }
         });
+       // CalendarView calendarView = getActivity().findViewById(R.id.calendarView);
+
+        //監聽當日期改變
+       /* calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            public void onSelectedDayChange(CalendarView view,
+                                            int year, int month, int dayOfMonth) {
+
+                //Month從0算起
+                if (dayOfMonth-10 < 0){
+                    date = year + "/" + (month+1) + "/0" + dayOfMonth;
+                }
+                else {
+                    date = year + "/" + (month+1) + "/0" + dayOfMonth;
+                }
+
+                Toast.makeText(getActivity().getApplication(), date, Toast.LENGTH_SHORT).show();
+
+            }
+        });*/
     }
+
 }

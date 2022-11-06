@@ -28,7 +28,6 @@ import fju.project.nicedream.ui.main.fragment.setting.vedio.VedioActivity;
 
 public class JudgeActivity extends AppCompatActivity {
 
-    //https://www.youtube.com/watch?v=lIjWOnJwLi4 讀取資料庫最後
     @BindView(R.id.judge_date)
     TextView judgedate;
     @BindView(R.id.health)
@@ -43,8 +42,6 @@ public class JudgeActivity extends AppCompatActivity {
     Button judge_article;
     @BindView(R.id.judge_vedio)
     Button judge_vedio;
-    @BindView(R.id.judge_history)
-    TextView judge_history;
     @BindView(R.id.main_good)
     ConstraintLayout main_good;
     @BindView(R.id.main_bad)
@@ -100,9 +97,7 @@ public class JudgeActivity extends AppCompatActivity {
     private void show(){
         progressBar.setVisibility(View.GONE);
         loading.setVisibility(View.INVISIBLE);
-        judge_history.setVisibility(View.VISIBLE);
-
-        Toast.makeText(JudgeActivity.this,outcome1,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(JudgeActivity.this,outcome1,Toast.LENGTH_SHORT).show();
         if ("否".equals(outcome1)){
             main_good.setVisibility(View.VISIBLE);
         }
