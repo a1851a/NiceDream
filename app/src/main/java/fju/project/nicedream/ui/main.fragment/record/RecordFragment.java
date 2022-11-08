@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,9 +28,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import fju.project.nicedream.MainActivity;
+import fju.project.nicedream.NiceDreamApplication;
 import fju.project.nicedream.R;
 import fju.project.nicedream.data.db.SQLdata;
 import fju.project.nicedream.ui.chart.ChartActivity;
@@ -38,6 +42,9 @@ public class RecordFragment extends Fragment {
 
     public SQLdata DH = null;
     public static SQLiteDatabase db;
+
+    private Timer timer;
+    private TimerTask timerTask;
 
     @Nullable
     @Override
@@ -87,4 +94,22 @@ public class RecordFragment extends Fragment {
         list.setAdapter(history);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        display();
+                    }
+                });
+            }
+        };
+        timer = NiceDreamApplication.getTimer();
+        timer.schedule(timerTask,1000,1000);
+    }
 }

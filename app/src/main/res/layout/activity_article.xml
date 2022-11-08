@@ -33,6 +33,7 @@
             android:id="@+id/article_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
             android:text="報導推薦"
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -40,30 +41,132 @@
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.294" />
+            app:layout_constraintVertical_bias="0.317" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constarintLayout_article_titleBar_view"
         android:layout_width="match_parent"
-        android:layout_height="555dp"
+        android:layout_height="580dp"
         android:layout_marginBottom="0dp"
         android:background="@color/light_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constarintLayout_article_titleBar" >
 
-        <WebView
-            android:id="@+id/article_webview"
-            android:layout_width="300dp"
-            android:layout_height="525dp"
+        <ScrollView
+            android:layout_width="400dp"
+            android:layout_height="550dp"
             android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="550dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/article1"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="馬偕-睡眠呼吸中止症"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"/>
+
+                <View
+                    android:id="@+id/divider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/article2"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="知識庫-睡眠呼吸中止症"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"/>
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/article3"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="知識庫-睡眠呼吸中止的常見症狀"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"/>
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/article4"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="衛教-睡眠呼吸中止的常見症狀"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"/>
+
+                <View
+                    android:id="@+id/divider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/article5"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="睡眠呼吸中止症-判斷的10個方法"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"/>
+
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/article6"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="睡眠呼吸中止症不開刀的治療新方法"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"/>
+
+                <View
+                    android:id="@+id/divider6"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/article7"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="詳解睡眠呼吸中止症"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

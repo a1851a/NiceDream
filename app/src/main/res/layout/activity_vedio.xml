@@ -10,8 +10,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constarintLayout_vedio_titleBar"
         android:layout_width="412dp"
-        android:layout_height="119dp"
-        android:layout_marginTop="50dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintBottom_toTopOf="@+id/constarintLayout_vedio_titleBar_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +32,7 @@
             android:id="@+id/vedio_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
             android:text="影片推薦"
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -46,7 +47,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constarintLayout_vedio_titleBar_view"
         android:layout_width="match_parent"
-        android:layout_height="555dp"
+        android:layout_height="580dp"
         android:background="@color/light_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,8 +57,8 @@
 
         <WebView
             android:id="@+id/vedio_webview"
-            android:layout_width="300dp"
-            android:layout_height="525dp"
+            android:layout_width="400dp"
+            android:layout_height="550dp"
             android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
