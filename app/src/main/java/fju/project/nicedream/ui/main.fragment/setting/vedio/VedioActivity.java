@@ -31,7 +31,7 @@ public class VedioActivity extends AppCompatActivity {
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webview.setWebViewClient(new WebViewClient());
-        webview.loadUrl("https://www.youtube.com/results?search_query=%E5%91%BC%E5%90%B8%E4%B8%AD%E6%AD%A2%E7%97%87");
+        webview.loadUrl("https://www.youtube.com/playlist?list=PLzytZGo7D8APuHp677_CO6zaWzEXZlzfo");
 
     }
 

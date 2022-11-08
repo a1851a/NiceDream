@@ -8,8 +8,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import android.Manifest;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.IntentFilter;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.PorterDuff;
 import android.net.ConnectivityManager;
 import android.os.Build;
@@ -17,6 +20,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
@@ -24,11 +30,14 @@ import com.google.android.material.tabs.TabLayout;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import fju.project.nicedream.data.db.SQLdata;
 import fju.project.nicedream.data.eventbus.StringEvent;
 import fju.project.nicedream.data.util.DisableSwipeViewPager;
 import fju.project.nicedream.ui.main.fragment.alarm.AlarmFragment;
@@ -217,6 +226,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
     }
+
 }

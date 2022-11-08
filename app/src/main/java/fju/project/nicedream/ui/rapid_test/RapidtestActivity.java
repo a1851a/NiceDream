@@ -704,9 +704,12 @@ public class RapidtestActivity extends AppCompatActivity {
                         }
                     }
 
-                    add(date,time,genderanswer,ageanswer,revenueanswer,hightanswer,weightanswer
+                    /*add(date,time,genderanswer,ageanswer,revenueanswer,hightanswer,weightanswer
                             ,sleepstarttimeanswer,sleeptimeanswer,activitytimeanswer,phonetimeanswer,noiseanswer,comfortableanswer
                             ,text_tirednumber.getText().toString(),text_tolitnumber.getText().toString(),text_headachenumber.getText().toString(),text_lazynumber.getText().toString(),text_dreamnumber.getText().toString(),text_acholicnumber.getText().toString(),text_drynumber.getText().toString(),text_attentionnumber.getText().toString(),text_headachenumberprogress.getText().toString(),outcome);
+                     */
+
+                    add(date,outcome);
 
                     Intent intent = new Intent();
                     intent.setClass(RapidtestActivity.this,JudgeActivity.class);
@@ -720,6 +723,13 @@ public class RapidtestActivity extends AppCompatActivity {
         }
     }
 
+    private void add(String date,String outcome){
+        ContentValues values = new ContentValues();
+        values.put("date",date);
+        values.put("outcome", outcome);
+        db.insert("test",null,values);
+    }
+    /*
     //增加資料
     private void add(String date,String time,String genderanswer,String ageanswer,String revenueanswer,String hightanswer,String weightanswer,
                      String sleepstarttimeanswer,String sleeptimeanswer,String activitytimeanswer,String phonetimeanswer,String noiseanswer,String comfortableanswer,
@@ -751,5 +761,5 @@ public class RapidtestActivity extends AppCompatActivity {
         values.put("outcome", outcome);
 
         db.insert("test",null,values);
-    }
+    }*/
 }

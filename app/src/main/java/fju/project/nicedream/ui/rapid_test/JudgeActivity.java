@@ -22,6 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fju.project.nicedream.R;
+import fju.project.nicedream.data.util.DeviceChecker;
 import fju.project.nicedream.ui.main.fragment.setting.article.ArticleActivity;
 import fju.project.nicedream.ui.main.fragment.setting.share.ShareActivity;
 import fju.project.nicedream.ui.main.fragment.setting.vedio.VedioActivity;
@@ -50,6 +51,8 @@ public class JudgeActivity extends AppCompatActivity {
     TextView loading;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
+    @BindView(R.id.judge_hosipital)
+    Button judge_hosipital;
 
     private String outcome1;
     private TimerTask timerTask;
@@ -82,14 +85,32 @@ public class JudgeActivity extends AppCompatActivity {
         },3000);
     }
 
-    @OnClick({R.id.judge_article,R.id.judge_vedio})
+    @OnClick({R.id.judge_hosipital,R.id.judge_article,R.id.judge_vedio})
     public void onViwClicked(View view){
         switch (view.getId()) {
+            case R.id.judge_hosipital:
+                if (!DeviceChecker.CheckInternet(this)){
+                    return;
+                }
+                else {
+                    startActivity(new Intent(this, HosipitalActivity.class));
+                }
+                break;
             case R.id.judge_article:
-                startActivity(new Intent(this, ArticleActivity.class));
+                if (!DeviceChecker.CheckInternet(this)){
+                    return;
+                }
+                else {
+                    startActivity(new Intent(this, ArticleActivity.class));
+                }
                 break;
             case R.id.judge_vedio:
-                startActivity(new Intent(this, VedioActivity.class));
+                if (!DeviceChecker.CheckInternet(this)){
+                    return;
+                }
+                else {
+                    startActivity(new Intent(this, VedioActivity.class));
+                }
                 break;
         }
     }

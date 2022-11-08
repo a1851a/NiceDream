@@ -29,27 +29,43 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="410dp"
-            android:layout_height="340dp"
-            android:layout_marginTop="40dp"
-            android:background="#FEFEFE"
+        <ScrollView
+            android:id="@+id/history"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/record_title" />
+            app:layout_constraintTop_toBottomOf="@+id/record_title">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:orientation="vertical" >
+
+                <ListView
+                    android:id="@+id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="800dp"
+                    tools:listitem="@layout/list" />
+
+            </LinearLayout>
+
+        </ScrollView>
 
         <TextView
             android:id="@+id/sleep_line"
             android:layout_width="60dp"
             android:layout_height="50dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:text="@string/chart"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+            app:layout_constraintTop_toBottomOf="@+id/history" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

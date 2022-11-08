@@ -148,7 +148,7 @@
                 android:id="@+id/judge_article"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="34dp"
                 android:backgroundTint="@color/grey"
                 android:text="文章推薦"
@@ -160,13 +160,25 @@
                 android:id="@+id/judge_vedio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="34dp"
                 android:backgroundTint="@color/grey"
                 android:text="影片推薦"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toStartOf="@+id/bad"
                 app:layout_constraintTop_toBottomOf="@+id/judge_article" />
+
+            <Button
+                android:id="@+id/judge_hosipital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="34dp"
+                android:backgroundTint="@color/grey"
+                android:text="中心推薦"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/bad"
+                app:layout_constraintTop_toBottomOf="@+id/judge_vedio" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         
