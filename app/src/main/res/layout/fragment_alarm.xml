@@ -11,7 +11,6 @@
         android:id="@+id/constraintLayout_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +20,7 @@
             android:id="@+id/alarm_title"
             android:layout_width="413dp"
             android:layout_height="55dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="35dp"
             android:layout_marginBottom="10dp"
             android:text="睡眠時間"
             android:textAlignment="center"
@@ -50,10 +49,8 @@
             android:id="@+id/alarm"
             android:layout_width="112dp"
             android:layout_height="83dp"
-            android:layout_marginBottom="15dp"
             android:scaleType="centerInside"
             android:src="@drawable/ic_alarm_alarm"
-            app:layout_constraintBottom_toTopOf="@+id/sleep_start"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +60,7 @@
             android:id="@+id/sleep_start"
             android:layout_width="152dp"
             android:layout_height="45dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="@color/orange"
             android:text="開始睡眠"
             android:textSize="20sp"
@@ -77,8 +74,7 @@
             android:id="@+id/sleep_end"
             android:layout_width="152dp"
             android:layout_height="45dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="@color/orange"
             android:text="結束睡眠"
             android:textSize="20sp"
@@ -93,7 +89,6 @@
             android:id="@+id/horizontalScrollView"
             android:layout_width="350dp"
             android:layout_height="285dp"
-            android:layout_marginTop="5dp"
             android:adjustViewBounds="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -210,9 +205,9 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </HorizontalScrollView>
+        </HorizontalScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -20,7 +20,7 @@
             android:id="@+id/home_title"
             android:layout_width="413dp"
             android:layout_height="55dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="35dp"
             android:text="現在時間"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -32,7 +32,7 @@
         <TextView
             android:id="@+id/home_date"
             android:layout_width="413dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:text="日期"
             android:textAlignment="center"
@@ -45,7 +45,7 @@
         <TextView
             android:id="@+id/home_time"
             android:layout_width="413dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:text="時間"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -60,6 +60,7 @@
             android:layout_height="59dp"
             android:layout_marginTop="100dp"
             android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/home_time">
 
@@ -68,10 +69,10 @@
                 android:layout_width="240dp"
                 android:layout_height="50dp"
                 android:text="判斷中..."
-                android:visibility="visible"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="30sp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -81,8 +82,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout_display1"
             android:layout_width="400dp"
-            android:layout_height="380dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="370dp"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,8 +117,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout_display2"
             android:layout_width="400dp"
-            android:layout_height="380dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="370dp"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -153,8 +152,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout_display3"
             android:layout_width="400dp"
-            android:layout_height="380dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="370dp"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -190,16 +188,15 @@
             android:id="@+id/judge_time"
             android:layout_width="413dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="117dp"
             android:text="時間"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="35sp"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="565dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
