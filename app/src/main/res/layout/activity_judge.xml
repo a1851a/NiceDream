@@ -81,7 +81,7 @@
 
             <TextView
                 android:id="@+id/health"
-                android:layout_width="413dp"
+                android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="40dp"
                 android:text="恭喜您，非常健康!"
@@ -120,7 +120,7 @@
 
             <TextView
                 android:id="@+id/unhealth"
-                android:layout_width="413dp"
+                android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="40dp"
                 android:text="我猜您需要一些幫助"

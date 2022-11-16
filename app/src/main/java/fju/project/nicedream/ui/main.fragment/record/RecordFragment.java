@@ -63,6 +63,9 @@ public class RecordFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         TextView sleep_line =  getActivity().findViewById(R.id.sleep_line);
+        TextView date =  getActivity().findViewById(R.id.record_date);
+        TextView outcome =  getActivity().findViewById(R.id.record_outcome);
+
 
         sleep_line.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +92,7 @@ public class RecordFragment extends Fragment {
             item.put("date",cursor.getString(0));
             item.put("outcome",cursor.getString(1));
             items.add(item);
+            cursor.moveToNext();
         }
         SimpleAdapter history = new SimpleAdapter(getActivity(),items,R.layout.list,new String[]{"date","outcome"},new int[]{R.id.date,R.id.outcome});
         list.setAdapter(history);

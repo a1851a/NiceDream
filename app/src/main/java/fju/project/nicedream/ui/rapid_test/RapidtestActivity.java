@@ -641,7 +641,16 @@ public class RapidtestActivity extends AppCompatActivity {
     public void onViwClicked(View view){
         switch (view.getId()) {
             case R.id.submit:
-                if ("請選擇".equals(age.getSelectedItem().toString()) ||
+                if ("0".equals(text_tirednumber.getText()) ||
+                        "0".equals(text_tolitnumber.getText()) ||
+                        "0".equals(text_headachenumber.getText()) ||
+                        "0".equals(text_lazynumber.getText()) ||
+                        "0".equals(text_dreamnumber.getText()) ||
+                        "0".equals(text_acholicnumber.getText()) ||
+                        "0".equals(text_drynumber.getText()) ||
+                        "0".equals(text_attentionnumber.getText()) ||
+                        "0".equals(text_headachenumberprogress.getText()) ||
+                        "請選擇".equals(age.getSelectedItem().toString()) ||
                         "請選擇".equals(revenue.getSelectedItem().toString()) ||
                         "請選擇".equals(hight.getSelectedItem().toString()) ||
                         "請選擇".equals(weight.getSelectedItem().toString()) ||
@@ -661,13 +670,18 @@ public class RapidtestActivity extends AppCompatActivity {
                                 0.207174598 * weightnumber + 0.683639494 * sleepstarttimenumber -
                                 0.054416414 * sleeptimenumber - 0.122161160 * activitytimenumber +
                                 0.013192798 * phonetimenumber + 0.226161730 * noisenumber +
-                                0.321232365 * comfortablenumber + 5 * 0.200695217 * Integer.valueOf(text_tirednumber.getText().toString()) +
-                                5 * 0.13810212 * Integer.valueOf(text_headachenumber.getText().toString()) + 5 * 0.112698437 * Integer.valueOf(text_tolitnumber.getText().toString()) +
-                                5 * 0.2558078 * Integer.valueOf(text_headachenumberprogress.getText().toString()) - 5 * 0.062332913 * Integer.valueOf(text_lazynumber.getText().toString()) -
-                                5 * 0.062930422 * Integer.valueOf(text_dreamnumber.getText().toString()) - 5 * 0.32058528 * Integer.valueOf(text_acholicnumber.getText().toString()) -
-                                5 * 0.185663247 * Integer.valueOf(text_drynumber.getText().toString()) + 5 * 0.108536251 * Integer.valueOf(text_attentionnumber.getText().toString());
+                                0.321232365 * comfortablenumber
+                                + 5 * 0.200695217 * Integer.valueOf(text_tirednumber.getText().toString())
+                                + 5 * 0.13810212 * Integer.valueOf(text_headachenumber.getText().toString())
+                                + 5 * 0.112698437 * Integer.valueOf(text_tolitnumber.getText().toString())
+                                + 5 * 0.2558078 * Integer.valueOf(text_headachenumberprogress.getText().toString())
+                                - 5 * 0.062332913 * Integer.valueOf(text_lazynumber.getText().toString())
+                                - 5 * 0.062930422 * Integer.valueOf(text_dreamnumber.getText().toString())
+                                - 5 * 0.32058528 * Integer.valueOf(text_acholicnumber.getText().toString())
+                                - 5 * 0.185663247 * Integer.valueOf(text_drynumber.getText().toString())
+                                + 5 * 0.108536251 * Integer.valueOf(text_attentionnumber.getText().toString());
 
-                        if (y1 <= 34.95557){
+                        if (y1 > 34.95557){
                             outcome = "否";
                         }
                         else {
@@ -680,11 +694,14 @@ public class RapidtestActivity extends AppCompatActivity {
                                 0.69927958 * sleepstarttimenumber - 0.06674871 * sleeptimenumber -
                                 0.05892681 * activitytimenumber - 0.04100488 * phonetimenumber+
                                 0.28362781 * noisenumber - 0.1207611 * comfortablenumber +
-                                5 * 0.16066278 * Integer.valueOf(text_tirednumber.getText().toString()) - 5 * 0.13924082 * Integer.valueOf(text_headachenumber.getText().toString()) +
-                                5 * 0.13720647 * Integer.valueOf(text_tolitnumber.getText().toString()) + 5 * 0.40881138 * Integer.valueOf(text_headachenumberprogress.getText().toString()) +
-                                5 * 0.08932488 * Integer.valueOf(text_dreamnumber.getText().toString()) - 5 * 0.40881138 * Integer.valueOf(text_drynumber.getText().toString());
+                                5 * 0.16066278 * Integer.valueOf(text_tirednumber.getText().toString())
+                                - 5 * 0.13924082 * Integer.valueOf(text_headachenumber.getText().toString()) +
+                                5 * 0.13720647 * Integer.valueOf(text_tolitnumber.getText().toString()) +
+                                5 * 0.40881138 * Integer.valueOf(text_headachenumberprogress.getText().toString()) +
+                                5 * 0.08932488 * Integer.valueOf(text_dreamnumber.getText().toString())
+                                - 5 * 0.11476586 * Integer.valueOf(text_drynumber.getText().toString());
 
-                        if (y2 <= 35.17268){
+                        if (y2 > 35.17268){
                             outcome = "否";
                         }
                         else {
@@ -693,10 +710,11 @@ public class RapidtestActivity extends AppCompatActivity {
                     }
                     else if ("女性".equals(genderanswer)){
                         y3 = 0.74920566 * sleepstarttimenumber + 0.61270342 * comfortablenumber+
-                                5 * 0.22842975 * Integer.valueOf(text_headachenumber.getText().toString()) + 5 * 0.08697056 * Integer.valueOf(text_tolitnumber.getText().toString()) +
+                                5 * 0.22842975 * Integer.valueOf(text_headachenumber.getText().toString()) +
+                                5 * 0.08697056 * Integer.valueOf(text_tolitnumber.getText().toString()) +
                                 5 * 0.05950947 * Integer.valueOf(text_attentionnumber.getText().toString());
 
-                        if (y3 <= 36.34173){
+                        if (y3 > 36.34173){
                             outcome = "否";
                         }
                         else {
@@ -729,6 +747,7 @@ public class RapidtestActivity extends AppCompatActivity {
         values.put("outcome", outcome);
         db.insert("test",null,values);
     }
+
     /*
     //增加資料
     private void add(String date,String time,String genderanswer,String ageanswer,String revenueanswer,String hightanswer,String weightanswer,
