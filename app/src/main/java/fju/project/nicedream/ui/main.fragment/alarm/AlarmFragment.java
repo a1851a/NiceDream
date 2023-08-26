@@ -18,6 +18,7 @@ import java.util.TimerTask;
 
 import fju.project.nicedream.NiceDreamApplication;
 import fju.project.nicedream.R;
+import fju.project.nicedream.databinding.FragmentAlarmBinding;
 
 public class AlarmFragment extends Fragment {
 
@@ -25,32 +26,37 @@ public class AlarmFragment extends Fragment {
     private TimerTask timerTask;
     Double time = 0.0;
 
+    FragmentAlarmBinding alarmbinding;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_alarm,container,false);
-
-        return view;
+        //View view = inflater.inflate(R.layout.fragment_alarm,container,false);
+        alarmbinding = FragmentAlarmBinding.inflate(inflater,container,false);
+        //return view;
+        return alarmbinding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        /*
         Button start = getActivity().findViewById(R.id.sleep_start);
         Button end = getActivity().findViewById(R.id.sleep_end);
         TextView count_time_start = getActivity().findViewById(R.id.count_time_1);
         TextView count_time_end = getActivity().findViewById(R.id.count_time_2);
         TextView sum_time = getActivity().findViewById(R.id.alarm_time);
+        */
 
-        start.setOnClickListener(new View.OnClickListener() {
+        alarmbinding.sleepStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                count_time_start.setText(""+ DateFormat.format("HH:mm:ss",System.currentTimeMillis()));
-                start.setVisibility(View.INVISIBLE);
-                end.setVisibility(View.VISIBLE);
-                count_time_end.setText("00:00:00");
-                sum_time.setText("00 : 00 : 00");
+                alarmbinding.countTime1.setText(""+ DateFormat.format("HH:mm:ss",System.currentTimeMillis()));
+                alarmbinding.sleepStart.setVisibility(View.INVISIBLE);
+                alarmbinding.sleepEnd.setVisibility(View.VISIBLE);
+                alarmbinding.countTime2.setText("00:00:00");
+                alarmbinding.alarmTime.setText("00 : 00 : 00");
                 time = 0.0;
                 timerTask = new TimerTask() {
                     @Override
@@ -59,7 +65,7 @@ public class AlarmFragment extends Fragment {
                             @Override
                             public void run() {
                                 time++;
-                                sum_time.setText(getTimerText());
+                                alarmbinding.alarmTime.setText(getTimerText());
                             }
                         });
                     }
@@ -69,12 +75,12 @@ public class AlarmFragment extends Fragment {
             }
         });
 
-        end.setOnClickListener(new View.OnClickListener() {
+        alarmbinding.sleepEnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                count_time_end.setText(""+ DateFormat.format("HH:mm:ss",System.currentTimeMillis()));
-                end.setVisibility(View.INVISIBLE);
-                start.setVisibility(View.VISIBLE);
+                alarmbinding.countTime2.setText(""+ DateFormat.format("HH:mm:ss",System.currentTimeMillis()));
+                alarmbinding.sleepEnd.setVisibility(View.INVISIBLE);
+                alarmbinding.sleepStart.setVisibility(View.VISIBLE);
                 timerTask.cancel();
             }
         });

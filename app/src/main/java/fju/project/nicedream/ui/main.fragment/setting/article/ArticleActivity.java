@@ -23,11 +23,15 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fju.project.nicedream.R;
 import fju.project.nicedream.data.util.DeviceChecker;
+import fju.project.nicedream.databinding.ActivityArticleBinding;
 
 public class ArticleActivity extends AppCompatActivity {
 
     private static final String TAG = "ArticleActivity";
 
+    ActivityArticleBinding articlebinding;
+
+    /*
     @BindView(R.id.article1)
     TextView article1;
     @BindView(R.id.article2)
@@ -42,17 +46,20 @@ public class ArticleActivity extends AppCompatActivity {
     TextView article6;
     @BindView(R.id.article7)
     TextView article7;
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_article);
+        //setContentView(R.layout.activity_article);
+        articlebinding = ActivityArticleBinding.inflate(getLayoutInflater());
+        setContentView(articlebinding.getRoot());
 
         if (getSupportActionBar() != null){
             getSupportActionBar().hide();
         }
 
-        ButterKnife.bind(this);
+        //ButterKnife.bind(this);
 
         /*
         WebView webview = (WebView) findViewById(R.id.article_webview);
@@ -62,8 +69,107 @@ public class ArticleActivity extends AppCompatActivity {
         webview.loadUrl("https://news.google.com/search?for=%E7%9D%A1%E7%9C%A0%E5%91%BC%E5%90%B8%E4%B8%AD%E6%AD%A2%E7%97%87&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant&v2prv=1");
         */
 
+        articlebinding.article1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DeviceChecker.CheckInternet(ArticleActivity.this)){
+                    return;
+                }
+                else {
+                    Intent intent1 = new Intent();
+                    intent1.setAction(Intent.ACTION_VIEW);
+                    intent1.setData(Uri.parse("https://www.mmh.org.tw/taitam/che_int/index6%20-sleep%20center3%20-%203.html"));
+                    startActivity(intent1);
+                }
+            }
+        });
+        articlebinding.article2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DeviceChecker.CheckInternet(ArticleActivity.this)){
+                    return;
+                }
+                else {
+                    Intent intent2 = new Intent();
+                    intent2.setAction(Intent.ACTION_VIEW);
+                    intent2.setData(Uri.parse("https://kb.commonhealth.com.tw/library/162.html#data-10-collapse"));
+                    startActivity(intent2);
+                }
+            }
+        });
+        articlebinding.article3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DeviceChecker.CheckInternet(ArticleActivity.this)){
+                    return;
+                }
+                else {
+                    Intent intent3 = new Intent();
+                    intent3.setAction(Intent.ACTION_VIEW);
+                    intent3.setData(Uri.parse("https://www.resmed.tw/zh-tw/consumer/diagnosis-and-treatment/sleep-apnea/what-is-sleep-apnea-and-what-are-the-symptoms"));
+                    startActivity(intent3);
+                }
+            }
+        });
+        articlebinding.article4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DeviceChecker.CheckInternet(ArticleActivity.this)){
+                    return;
+                }
+                else {
+                    Intent intent4 = new Intent();
+                    intent4.setAction(Intent.ACTION_VIEW);
+                    intent4.setData(Uri.parse("https://ck.ccgh.com.tw/department_listDetail1162.htm"));
+                    startActivity(intent4);
+                }
+            }
+        });
+        articlebinding.article5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DeviceChecker.CheckInternet(ArticleActivity.this)){
+                    return;
+                }
+                else {
+                    Intent intent5 = new Intent();
+                    intent5.setAction(Intent.ACTION_VIEW);
+                    intent5.setData(Uri.parse("https://somnoslim.com.tw/tc/blog1?id=16"));
+                    startActivity(intent5);
+                }
+            }
+        });
+        articlebinding.article6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DeviceChecker.CheckInternet(ArticleActivity.this)){
+                    return;
+                }
+                else {
+                    Intent intent6= new Intent();
+                    intent6.setAction(Intent.ACTION_VIEW);
+                    intent6.setData(Uri.parse("https://www.raphaelclinic.com.tw/medical_academy/sleep_apnea_syndrome"));
+                    startActivity(intent6);
+                }
+            }
+        });
+        articlebinding.article7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DeviceChecker.CheckInternet(ArticleActivity.this)){
+                    return;
+                }
+                else {
+                    Intent intent7= new Intent();
+                    intent7.setAction(Intent.ACTION_VIEW);
+                    intent7.setData(Uri.parse("https://heho.com.tw/archives/189320"));
+                    startActivity(intent7);
+                }
+            }
+        });
     }
 
+    /*
     @OnClick({R.id.article1,R.id.article2,R.id.article3,R.id.article4,R.id.article5,R.id.article6,R.id.article7})
     public void onViewClicked(View view){
         switch (view.getId()) {
@@ -145,5 +251,5 @@ public class ArticleActivity extends AppCompatActivity {
                 }
                 break;
         }
-    }
+    }*/
 }

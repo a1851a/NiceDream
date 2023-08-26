@@ -51,6 +51,8 @@ import butterknife.OnClick;
 import fju.project.nicedream.MainActivity;
 import fju.project.nicedream.R;
 import fju.project.nicedream.data.util.DeviceChecker;
+import fju.project.nicedream.databinding.ActivityLoginBinding;
+import fju.project.nicedream.databinding.ActivityMainBinding;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -60,6 +62,9 @@ public class LoginActivity extends AppCompatActivity {
     private CallbackManager mCallbackManager;
     private FirebaseAuth mAuth;
 
+    ActivityLoginBinding loginbinding;
+
+    /*
     @BindView(R.id.login_logo)
     ImageView loginlogo;
     @BindView(R.id.login_title)
@@ -70,20 +75,102 @@ public class LoginActivity extends AppCompatActivity {
     ImageView loginfb;
     @BindView(R.id.login_no)
     ImageView loginno;
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        //setContentView(R.layout.activity_login);
+        loginbinding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(loginbinding.getRoot());
 
         if (getSupportActionBar() != null){
             getSupportActionBar().hide();
         }
 
-        ButterKnife.bind(this);
+        //ButterKnife.bind(this);
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+
+        loginbinding.loginGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DeviceChecker.CheckInternet(LoginActivity.this)){
+                    return;
+                }
+                else {
+                    GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                            .requestIdToken("668502734211-1p8g8a7cirgq5v7ilebhiicbo9mrc4ne.apps.googleusercontent.com")
+                            .requestEmail()
+                            .build();
+                    mGoogleSignInClient = GoogleSignIn.getClient(LoginActivity.this, gso);
+                    startActivityForResult(mGoogleSignInClient.getSignInIntent(),1);
+                }
+            }
+        });
+
+        loginbinding.loginFb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DeviceChecker.CheckInternet(LoginActivity.this)) {
+                    return;
+                }
+                else {
+                    //初始化fb sdk
+                    FacebookSdk.sdkInitialize(LoginActivity.this);
+                    // Initialize Facebook Login button
+                    mCallbackManager = CallbackManager.Factory.create();
+                    LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList("email","public_profile"));
+                    LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+                        @Override
+                        public void onSuccess(LoginResult loginResult) {
+                            Log.d(TAG, "facebook:onSuccess:" + loginResult);
+                            handleFacebookAccessToken(loginResult.getAccessToken());
+                        }
+
+                        @Override
+                        public void onCancel() {
+                            Log.d(TAG, "facebook:onCancel");
+                        }
+
+                        @Override
+                        public void onError(FacebookException error) {
+                            Log.d(TAG, "facebook:onError", error);
+                        }
+                    });
+                }
+            }
+        });
+
+        loginbinding.loginNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DeviceChecker.CheckInternet(LoginActivity.this)) {
+                    return;
+                }
+                else {
+                    mAuth.signInAnonymously()
+                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        // Sign in success, update UI with the signed-in user's information
+                                        Log.d(TAG, "signInAnonymously:success");
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                        updateUI(user);
+                                    } else {
+                                        // If sign in fails, display a message to the user.
+                                        Log.w(TAG, "signInAnonymously:failure", task.getException());
+                                        Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                                Toast.LENGTH_SHORT).show();
+                                        updateUI(null);
+                                    }
+                                }
+                            });
+                }
+            }
+        });
     }
 
     @Override
@@ -96,6 +183,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    /*
     @OnClick({R.id.login_google,R.id.login_fb,R.id.login_no})
     public void onViewClicked(View view){
         switch (view.getId()) {
@@ -167,7 +255,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 break;
         }
-    }
+    }*/
 
     private void handleGoogleAccessToken(Task<GoogleSignInAccount> task) {
         try {
@@ -250,7 +338,6 @@ public class LoginActivity extends AppCompatActivity {
             super.onActivityResult(requestCode, resultCode, data);
             mCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
-
     }
 
     //禁止使用返回鍵

@@ -15,11 +15,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.internal.FragmentWrapper;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
 import fju.project.nicedream.NiceDreamApplication;
 import fju.project.nicedream.R;
+import fju.project.nicedream.databinding.FragmentHomeBinding;
 import fju.project.nicedream.ui.rapid_test.RapidtestActivity;
 
 public class HomeFragment extends Fragment {
@@ -30,21 +33,29 @@ public class HomeFragment extends Fragment {
     private ConstraintLayout display0,display1,display2,display3;
     private int hr;
 
+    FragmentHomeBinding homebinding;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_home,container,false);
+        //View view= inflater.inflate(R.layout.fragment_home,container,false);
+        homebinding =FragmentHomeBinding.inflate(inflater,container,false);
 
+        homebinding.homeDate.setText(""+ DateFormat.format("yyyy/MM/dd",System.currentTimeMillis()));
+        homebinding.homeTime.setText(""+ DateFormat.format("HH:mm",System.currentTimeMillis()));
+        homebinding.judgeTime.setText(""+ DateFormat.format("HH",System.currentTimeMillis()));
+
+        /*
         TextView date =(TextView) view.findViewById(R.id.home_date);
         date.setText(""+ DateFormat.format("yyyy/MM/dd",System.currentTimeMillis()));
-
         TextView time =(TextView) view.findViewById(R.id.home_time);
         time.setText(""+ DateFormat.format("HH:mm",System.currentTimeMillis()));
-
         TextView judge_time =(TextView) view.findViewById(R.id.judge_time);
         judge_time.setText(""+ DateFormat.format("HH",System.currentTimeMillis()));
+        */
 
-        return view;
+        //return view;
+        return  homebinding.getRoot();
     }
 
     @Override

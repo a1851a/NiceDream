@@ -36,7 +36,7 @@
             android:layout_width="413dp"
             android:layout_height="55dp"
             android:layout_marginTop="40dp"
-            android:text="您是否患有睡眠中止症："
+            android:text="您是否有睡眠障礙："
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="30sp"

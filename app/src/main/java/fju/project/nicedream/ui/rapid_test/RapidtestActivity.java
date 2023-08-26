@@ -24,6 +24,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fju.project.nicedream.R;
 import fju.project.nicedream.data.db.SQLdata;
+import fju.project.nicedream.databinding.ActivityRapidtestBinding;
 
 public class RapidtestActivity extends AppCompatActivity {
 
@@ -39,6 +40,10 @@ public class RapidtestActivity extends AppCompatActivity {
     //判斷式
     private double y1 ,y2 ,y3 ;
     private String outcome;
+
+    ActivityRapidtestBinding rapidtestbinding;
+
+    /*
     @BindView(R.id.spinnergender)
     Spinner gender;
     @BindView(R.id.spinnerage)
@@ -100,17 +105,20 @@ public class RapidtestActivity extends AppCompatActivity {
 
     @BindView(R.id.submit)
     Button submit;
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rapidtest);
+        //setContentView(R.layout.activity_rapidtest);
+        rapidtestbinding = ActivityRapidtestBinding.inflate(getLayoutInflater());
+        setContentView(rapidtestbinding.getRoot());
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
 
-        ButterKnife.bind(this);
+        //ButterKnife.bind(this);
 
         DH = new SQLdata(this);
         //讀取資料庫
@@ -120,23 +128,23 @@ public class RapidtestActivity extends AppCompatActivity {
         time=(""+ DateFormat.format("HH:mm",System.currentTimeMillis()));
 
         ArrayAdapter adapter_gender = ArrayAdapter.createFromResource(this,R.array.gender, android.R.layout.simple_dropdown_item_1line);
-        gender.setAdapter(adapter_gender);
+        rapidtestbinding.spinnergender.setAdapter(adapter_gender);
         ArrayAdapter adapter_age = ArrayAdapter.createFromResource(this,R.array.age, android.R.layout.simple_dropdown_item_1line);
-        age.setAdapter(adapter_age);
+        rapidtestbinding.spinnerage.setAdapter(adapter_age);
         ArrayAdapter adapter_revenue = ArrayAdapter.createFromResource(this,R.array.revenue, android.R.layout.simple_dropdown_item_1line);
-        revenue.setAdapter(adapter_revenue);
+        rapidtestbinding.spinnerrevenue.setAdapter(adapter_revenue);
         ArrayAdapter adapter_hight = ArrayAdapter.createFromResource(this,R.array.hight, android.R.layout.simple_dropdown_item_1line);
-        hight.setAdapter(adapter_hight);
+        rapidtestbinding.spinnerhight.setAdapter(adapter_hight);
         ArrayAdapter adapter_weight = ArrayAdapter.createFromResource(this,R.array.weight, android.R.layout.simple_dropdown_item_1line);
-        weight.setAdapter(adapter_weight);
+        rapidtestbinding.spinnerweight.setAdapter(adapter_weight);
 
-        gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        rapidtestbinding.spinnergender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if ("請選擇".equals(gender.getSelectedItem().toString())){
+                if ("請選擇".equals(rapidtestbinding.spinnergender.getSelectedItem().toString())){
                     genderanswer = "未選擇";
                 }
-                else if("男性".equals(gender.getSelectedItem().toString())){
+                else if("男性".equals(rapidtestbinding.spinnergender.getSelectedItem().toString())){
                     genderanswer = "男性";
                 }
                 else {
@@ -149,30 +157,30 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        age.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        rapidtestbinding.spinnerage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if ("19以下".equals(age.getSelectedItem().toString())){
+                if ("19以下".equals(rapidtestbinding.spinnerage.getSelectedItem().toString())){
                     ageanswer = "19以下";
                     agenumber = 5;
                 }
-                else if("20~29".equals(age.getSelectedItem().toString())){
+                else if("20~29".equals(rapidtestbinding.spinnerage.getSelectedItem().toString())){
                     ageanswer = "20~29";
                     agenumber = 10;
                 }
-                else if ("30~39".equals(age.getSelectedItem().toString())){
+                else if ("30~39".equals(rapidtestbinding.spinnerage.getSelectedItem().toString())){
                     ageanswer = "30~39";
                     agenumber = 15;
                 }
-                else if ("40~49".equals(age.getSelectedItem().toString())){
+                else if ("40~49".equals(rapidtestbinding.spinnerage.getSelectedItem().toString())){
                     ageanswer = "40~49";
                     agenumber = 20;
                 }
-                else if ("50~59".equals(age.getSelectedItem().toString())){
+                else if ("50~59".equals(rapidtestbinding.spinnerage.getSelectedItem().toString())){
                     ageanswer = "50~59";
                     agenumber = 25;
                 }
-                else if ("60~69".equals(age.getSelectedItem().toString())){
+                else if ("60~69".equals(rapidtestbinding.spinnerage.getSelectedItem().toString())){
                     ageanswer = "60~69";
                     agenumber = 30;
                 }
@@ -186,22 +194,22 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        revenue.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        rapidtestbinding.spinnerrevenue.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if ("0~540000".equals(revenue.getSelectedItem().toString())){
+                if ("0~540000".equals(rapidtestbinding.spinnerrevenue.getSelectedItem().toString())){
                     revenueanswer = "0~540000";
                     revenuenumber = 5;
                 }
-                else if("540001~1210000".equals(revenue.getSelectedItem().toString())){
+                else if("540001~1210000".equals(rapidtestbinding.spinnerrevenue.getSelectedItem().toString())){
                     revenueanswer = "540001~1210000";
                     revenuenumber = 10;
                 }
-                else if ("1210001~2420000".equals(revenue.getSelectedItem().toString())){
+                else if ("1210001~2420000".equals(rapidtestbinding.spinnerrevenue.getSelectedItem().toString())){
                     revenueanswer = "1210001~2420000";
                     revenuenumber = 15;
                 }
-                else if ("2420001~4530000".equals(revenue.getSelectedItem().toString())){
+                else if ("2420001~4530000".equals(rapidtestbinding.spinnerrevenue.getSelectedItem().toString())){
                     revenueanswer = "2420001~4530000";
                     revenuenumber = 20;
                 }
@@ -215,26 +223,26 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        hight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        rapidtestbinding.spinnerhight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if ("150公分以下".equals(hight.getSelectedItem().toString())){
+                if ("150公分以下".equals(rapidtestbinding.spinnerhight.getSelectedItem().toString())){
                     hightanswer = "150公分以下";
                     hightnumber = 5;
                 }
-                else if("151~160公分".equals(hight.getSelectedItem().toString())){
+                else if("151~160公分".equals(rapidtestbinding.spinnerhight.getSelectedItem().toString())){
                     hightanswer = "151~160公分";
                     hightnumber = 10;
                 }
-                else if ("161~170公分".equals(hight.getSelectedItem().toString())){
+                else if ("161~170公分".equals(rapidtestbinding.spinnerhight.getSelectedItem().toString())){
                     hightanswer = "161~170公分";
                     hightnumber = 15;
                 }
-                else if ("171~180公分".equals(hight.getSelectedItem().toString())){
+                else if ("171~180公分".equals(rapidtestbinding.spinnerhight.getSelectedItem().toString())){
                     hightanswer = "171~180公分";
                     hightnumber = 20;
                 }
-                else if ("181~190公分".equals(hight.getSelectedItem().toString())){
+                else if ("181~190公分".equals(rapidtestbinding.spinnerhight.getSelectedItem().toString())){
                     hightanswer = "181~190公分";
                     hightnumber = 25;
                 }
@@ -248,34 +256,34 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        weight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        rapidtestbinding.spinnerweight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if ("40公斤以下".equals(weight.getSelectedItem().toString())){
+                if ("40公斤以下".equals(rapidtestbinding.spinnerweight.getSelectedItem().toString())){
                     weightanswer = "40公斤以下";
                     weightnumber = 5;
                 }
-                else if("41~50公斤".equals(weight.getSelectedItem().toString())){
+                else if("41~50公斤".equals(rapidtestbinding.spinnerweight.getSelectedItem().toString())){
                     weightanswer = "41~50公斤";
                     weightnumber = 10;
                 }
-                else if ("51~60公斤".equals(weight.getSelectedItem().toString())){
+                else if ("51~60公斤".equals(rapidtestbinding.spinnerweight.getSelectedItem().toString())){
                     weightanswer = "51~60公斤";
                     weightnumber = 15;
                 }
-                else if ("61~70公斤".equals(weight.getSelectedItem().toString())){
+                else if ("61~70公斤".equals(rapidtestbinding.spinnerweight.getSelectedItem().toString())){
                     weightanswer = "61~70公斤";
                     weightnumber = 20;
                 }
-                else if ("71~80公斤".equals(weight.getSelectedItem().toString())){
+                else if ("71~80公斤".equals(rapidtestbinding.spinnerweight.getSelectedItem().toString())){
                     weightanswer = "71~80公斤";
                     weightnumber = 25;
                 }
-                else if ("81~90公斤".equals(weight.getSelectedItem().toString())){
+                else if ("81~90公斤".equals(rapidtestbinding.spinnerweight.getSelectedItem().toString())){
                     weightanswer = "81~90公斤";
                     weightnumber = 30;
                 }
-                else if ("91~100公斤".equals(weight.getSelectedItem().toString())){
+                else if ("91~100公斤".equals(rapidtestbinding.spinnerweight.getSelectedItem().toString())){
                     weightanswer = "91~100公斤";
                     weightnumber = 35;
                 }
@@ -289,30 +297,30 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        sleepstarttime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        rapidtestbinding.spinnersleepstarttime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if ("9點前".equals(sleepstarttime.getSelectedItem().toString())){
+                if ("9點前".equals(rapidtestbinding.spinnersleepstarttime.getSelectedItem().toString())){
                     sleepstarttimeanswer = "9點前";
                     sleepstarttimenumber = 5;
                 }
-                else if("9~10點".equals(sleepstarttime.getSelectedItem().toString())){
+                else if("9~10點".equals(rapidtestbinding.spinnersleepstarttime.getSelectedItem().toString())){
                     sleepstarttimeanswer = "9~10點";
                     sleepstarttimenumber = 10;
                 }
-                else if("10~11點".equals(sleepstarttime.getSelectedItem().toString())){
+                else if("10~11點".equals(rapidtestbinding.spinnersleepstarttime.getSelectedItem().toString())){
                     sleepstarttimeanswer = "10~11點";
                     sleepstarttimenumber = 15;
                 }
-                else if("11~12點".equals(sleepstarttime.getSelectedItem().toString())){
+                else if("11~12點".equals(rapidtestbinding.spinnersleepstarttime.getSelectedItem().toString())){
                     sleepstarttimeanswer = "11~12點";
                     sleepstarttimenumber = 20;
                 }
-                else if("12~1點".equals(sleepstarttime.getSelectedItem().toString())){
+                else if("12~1點".equals(rapidtestbinding.spinnersleepstarttime.getSelectedItem().toString())){
                     sleepstarttimeanswer = "12~1點";
                     sleepstarttimenumber = 25;
                 }
-                else if("1~2點".equals(sleepstarttime.getSelectedItem().toString())){
+                else if("1~2點".equals(rapidtestbinding.spinnersleepstarttime.getSelectedItem().toString())){
                     sleepstarttimeanswer = "1~2點";
                     sleepstarttimenumber = 30;
                 }
@@ -326,26 +334,26 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        sleeptime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        rapidtestbinding.spinnersleeptime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if ("少於4小時".equals(sleeptime.getSelectedItem().toString())){
+                if ("少於4小時".equals(rapidtestbinding.spinnersleeptime.getSelectedItem().toString())){
                     sleeptimeanswer = "少於4小時";
                     sleeptimenumber = 5;
                 }
-                else if("4~6小時".equals(sleeptime.getSelectedItem().toString())){
+                else if("4~6小時".equals(rapidtestbinding.spinnersleeptime.getSelectedItem().toString())){
                     sleeptimeanswer = "4~6小時";
                     sleeptimenumber = 10;
                 }
-                else if("6~8小時".equals(sleeptime.getSelectedItem().toString())){
+                else if("6~8小時".equals(rapidtestbinding.spinnersleeptime.getSelectedItem().toString())){
                     sleeptimeanswer = "6~8小時";
                     sleeptimenumber = 15;
                 }
-                else if("8~10小時".equals(sleeptime.getSelectedItem().toString())){
+                else if("8~10小時".equals(rapidtestbinding.spinnersleeptime.getSelectedItem().toString())){
                     sleeptimeanswer = "8~10小時";
                     sleeptimenumber = 20;
                 }
-                else if("10~12小時".equals(sleeptime.getSelectedItem().toString())){
+                else if("10~12小時".equals(rapidtestbinding.spinnersleeptime.getSelectedItem().toString())){
                     sleeptimeanswer = "10~12小時";
                     sleeptimenumber = 25;
                 }
@@ -359,26 +367,26 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        activitytime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        rapidtestbinding.spinneractivitytime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if ("少於8小時".equals(activitytime.getSelectedItem().toString())){
+                if ("少於8小時".equals(rapidtestbinding.spinneractivitytime.getSelectedItem().toString())){
                     activitytimeanswer = "少於8小時";
                     activitytimenumber = 5;
                 }
-                else if("8~9小時".equals(activitytime.getSelectedItem().toString())){
+                else if("8~9小時".equals(rapidtestbinding.spinneractivitytime.getSelectedItem().toString())){
                     activitytimeanswer = "8~9小時";
                     activitytimenumber = 10;
                 }
-                else if("9~10小時".equals(activitytime.getSelectedItem().toString())){
+                else if("9~10小時".equals(rapidtestbinding.spinneractivitytime.getSelectedItem().toString())){
                     activitytimeanswer = "9~10小時";
                     activitytimenumber = 15;
                 }
-                else if("10~11小時".equals(activitytime.getSelectedItem().toString())){
+                else if("10~11小時".equals(rapidtestbinding.spinneractivitytime.getSelectedItem().toString())){
                     activitytimeanswer = "10~11小時";
                     activitytimenumber = 20;
                 }
-                else if("11~12小時".equals(activitytime.getSelectedItem().toString())){
+                else if("11~12小時".equals(rapidtestbinding.spinneractivitytime.getSelectedItem().toString())){
                     activitytimeanswer = "11~12小時";
                     activitytimenumber = 25;
                 }
@@ -392,26 +400,26 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        phonetime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        rapidtestbinding.spinnerphonetime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if ("0~30分鐘".equals(phonetime.getSelectedItem().toString())){
+                if ("0~30分鐘".equals(rapidtestbinding.spinnerphonetime.getSelectedItem().toString())){
                     phonetimeanswer = "0~30分鐘";
                     phonetimenumber = 5;
                 }
-                else if("30~60分鐘".equals(phonetime.getSelectedItem().toString())){
+                else if("30~60分鐘".equals(rapidtestbinding.spinnerphonetime.getSelectedItem().toString())){
                     phonetimeanswer = "30~60分鐘";
                     phonetimenumber = 10;
                 }
-                else if("60~90分鐘".equals(phonetime.getSelectedItem().toString())){
+                else if("60~90分鐘".equals(rapidtestbinding.spinnerphonetime.getSelectedItem().toString())){
                     phonetimeanswer = "60~90分鐘";
                     phonetimenumber = 15;
                 }
-                else if("90~120分鐘".equals(phonetime.getSelectedItem().toString())){
+                else if("90~120分鐘".equals(rapidtestbinding.spinnerphonetime.getSelectedItem().toString())){
                     phonetimeanswer = "90~120分鐘";
                     phonetimenumber = 20;
                 }
-                else if("120~150分鐘".equals(phonetime.getSelectedItem().toString())){
+                else if("120~150分鐘".equals(rapidtestbinding.spinnerphonetime.getSelectedItem().toString())){
                     phonetimeanswer = "120~150分鐘";
                     phonetimenumber = 25;
                 }
@@ -425,26 +433,26 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        noise.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        rapidtestbinding.spinnernoise.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if ("非常安靜".equals(noise.getSelectedItem().toString())){
+                if ("非常安靜".equals(rapidtestbinding.spinnernoise.getSelectedItem().toString())){
                     noiseanswer = "非常安靜";
                     noisenumber = 5;
                 }
-                else if("安靜".equals(noise.getSelectedItem().toString())){
+                else if("安靜".equals(rapidtestbinding.spinnernoise.getSelectedItem().toString())){
                     noiseanswer = "安靜";
                     noisenumber = 10;
                 }
-                else if("一點點安靜".equals(noise.getSelectedItem().toString())){
+                else if("一點點安靜".equals(rapidtestbinding.spinnernoise.getSelectedItem().toString())){
                     noiseanswer = "一點點安靜";
                     noisenumber = 15;
                 }
-                else if("一點點吵雜".equals(noise.getSelectedItem().toString())){
+                else if("一點點吵雜".equals(rapidtestbinding.spinnernoise.getSelectedItem().toString())){
                     noiseanswer = "一點點吵雜";
                     noisenumber = 20;
                 }
-                else if("吵雜".equals(noise.getSelectedItem().toString())){
+                else if("吵雜".equals(rapidtestbinding.spinnernoise.getSelectedItem().toString())){
                     noiseanswer = "吵雜";
                     noisenumber = 25;
                 }
@@ -458,26 +466,26 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        comfortable.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        rapidtestbinding.spinnercomfortable.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if ("非常硬".equals(comfortable.getSelectedItem().toString())){
+                if ("非常硬".equals(rapidtestbinding.spinnercomfortable.getSelectedItem().toString())){
                     comfortableanswer = "非常硬";
                     comfortablenumber = 5;
                 }
-                else if("硬".equals(comfortable.getSelectedItem().toString())){
+                else if("硬".equals(rapidtestbinding.spinnercomfortable.getSelectedItem().toString())){
                     comfortableanswer = "硬";
                     comfortablenumber = 10;
                 }
-                else if("稍微硬".equals(comfortable.getSelectedItem().toString())){
+                else if("稍微硬".equals(rapidtestbinding.spinnercomfortable.getSelectedItem().toString())){
                     comfortableanswer = "稍微硬";
                     comfortablenumber = 15;
                 }
-                else if("稍微軟".equals(comfortable.getSelectedItem().toString())){
+                else if("稍微軟".equals(rapidtestbinding.spinnercomfortable.getSelectedItem().toString())){
                     comfortableanswer = "稍微軟";
                     comfortablenumber = 20;
                 }
-                else if("軟".equals(comfortable.getSelectedItem().toString())){
+                else if("軟".equals(rapidtestbinding.spinnercomfortable.getSelectedItem().toString())){
                     comfortableanswer = "軟";
                     comfortablenumber = 25;
                 }
@@ -491,13 +499,13 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        tired.setProgress(1);
-        text_tirednumber.setText("1");
+        rapidtestbinding.seekBartired.setProgress(1);
+        rapidtestbinding.textTirednumber.setText("1");
 
-        tired.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        rapidtestbinding.seekBartired.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                text_tirednumber.setText(Integer.toString(progress));
+                rapidtestbinding.textTirednumber.setText(Integer.toString(progress));
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -507,13 +515,13 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        headache.setProgress(1);
-        text_headachenumber.setText("1");
+        rapidtestbinding.seekBarheadache.setProgress(1);
+        rapidtestbinding.textHeadachenumber.setText("1");
 
-        headache.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        rapidtestbinding.seekBarheadacheProgress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                text_headachenumber.setText(Integer.toString(progress));
+                rapidtestbinding.textHeadachenumber.setText(Integer.toString(progress));
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -523,13 +531,13 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        tolit.setProgress(1);
-        text_tolitnumber.setText("1");
+        rapidtestbinding.seekBartolit.setProgress(1);
+        rapidtestbinding.textTolitnumber.setText("1");
 
-        tolit.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        rapidtestbinding.seekBartolit.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                text_tolitnumber.setText(Integer.toString(progress));
+                rapidtestbinding.textTolitnumber.setText(Integer.toString(progress));
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -539,13 +547,13 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        headache_progress.setProgress(1);
-        text_headachenumberprogress.setText("1");
+        rapidtestbinding.seekBarheadacheProgress.setProgress(1);
+        rapidtestbinding.textHeadachenumber.setText("1");
 
-        headache_progress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        rapidtestbinding.seekBarheadacheProgress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                text_headachenumberprogress.setText(Integer.toString(progress));
+                rapidtestbinding.textHeadachenumber.setText(Integer.toString(progress));
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -555,13 +563,13 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        lazy.setProgress(1);
-        text_lazynumber.setText("1");
+        rapidtestbinding.seekBarlazy.setProgress(1);
+        rapidtestbinding.textLazynumber.setText("1");
 
-        lazy.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        rapidtestbinding.seekBarlazy.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                text_lazynumber.setText(Integer.toString(progress));
+                rapidtestbinding.textLazynumber.setText(Integer.toString(progress));
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -571,13 +579,13 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        dream.setProgress(1);
-        text_dreamnumber.setText("1");
+        rapidtestbinding.seekBardream.setProgress(1);
+        rapidtestbinding.textDreamnumber.setText("1");
 
-        dream.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        rapidtestbinding.seekBardream.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                text_dreamnumber.setText(Integer.toString(progress));
+                rapidtestbinding.textDreamnumber.setText(Integer.toString(progress));
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -587,13 +595,13 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        acholic.setProgress(1);
-        text_acholicnumber.setText("1");
+        rapidtestbinding.seekBaracholic.setProgress(1);
+        rapidtestbinding.textAcholicnumber.setText("1");
 
-        acholic.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        rapidtestbinding.seekBaracholic.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                text_acholicnumber.setText(Integer.toString(progress));
+                rapidtestbinding.textAcholicnumber.setText(Integer.toString(progress));
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -603,13 +611,13 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        dry.setProgress(1);
-        text_drynumber.setText("1");
+        rapidtestbinding.seekBardry.setProgress(1);
+        rapidtestbinding.textDrynumber.setText("1");
 
-        dry.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        rapidtestbinding.seekBardry.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                text_drynumber.setText(Integer.toString(progress));
+                rapidtestbinding.textDrynumber.setText(Integer.toString(progress));
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -619,13 +627,13 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
-        attention.setProgress(1);
-        text_attentionnumber.setText("1");
+        rapidtestbinding.seekBarattention.setProgress(1);
+        rapidtestbinding.textAttentionnumber.setText("1");
 
-        attention.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        rapidtestbinding.seekBarattention.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                text_attentionnumber.setText(Integer.toString(progress));
+                rapidtestbinding.textAttentionnumber.setText(Integer.toString(progress));
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -635,8 +643,101 @@ public class RapidtestActivity extends AppCompatActivity {
             }
         });
 
+        rapidtestbinding.submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if ("請選擇".equals(rapidtestbinding.spinnerage.getSelectedItem().toString()) ||
+                        "請選擇".equals(rapidtestbinding.spinnerrevenue.getSelectedItem().toString()) ||
+                        "請選擇".equals(rapidtestbinding.spinnerhight.getSelectedItem().toString()) ||
+                        "請選擇".equals(rapidtestbinding.spinnerweight.getSelectedItem().toString()) ||
+                        "請選擇".equals(rapidtestbinding.spinnersleepstarttime.getSelectedItem().toString()) ||
+                        "請選擇".equals(rapidtestbinding.spinnersleeptime.getSelectedItem().toString()) ||
+                        "請選擇".equals(rapidtestbinding.spinneractivitytime.getSelectedItem().toString()) ||
+                        "請選擇".equals(rapidtestbinding.spinnerphonetime.getSelectedItem().toString()) ||
+                        "請選擇".equals(rapidtestbinding.spinnernoise.getSelectedItem().toString()) ||
+                        "請選擇".equals(rapidtestbinding.spinnercomfortable.getSelectedItem().toString())
+                ){
+                    Toast.makeText(RapidtestActivity.this,"未輸入完成",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    if ("未選擇".equals(genderanswer)){
+                        y1 = 0.095767611 * agenumber+
+                                0.11736077 * revenuenumber- 0.003463014 * hightnumber +
+                                0.207174598 * weightnumber + 0.683639494 * sleepstarttimenumber -
+                                0.054416414 * sleeptimenumber - 0.122161160 * activitytimenumber +
+                                0.013192798 * phonetimenumber + 0.226161730 * noisenumber +
+                                0.321232365 * comfortablenumber
+                                + 5 * 0.200695217 * Integer.valueOf(rapidtestbinding.textTirednumber.getText().toString())
+                                + 5 * 0.13810212 * Integer.valueOf(rapidtestbinding.textHeadachenumber.getText().toString())
+                                + 5 * 0.112698437 * Integer.valueOf(rapidtestbinding.textTolitnumber.getText().toString())
+                                + 5 * 0.2558078 * Integer.valueOf(rapidtestbinding.textHeadachenumberProgress.getText().toString())
+                                - 5 * 0.062332913 * Integer.valueOf(rapidtestbinding.textLazynumber.getText().toString())
+                                - 5 * 0.062930422 * Integer.valueOf(rapidtestbinding.textDreamnumber.getText().toString())
+                                - 5 * 0.32058528 * Integer.valueOf(rapidtestbinding.textAcholicnumber.getText().toString())
+                                - 5 * 0.185663247 * Integer.valueOf(rapidtestbinding.textDrynumber.getText().toString())
+                                + 5 * 0.108536251 * Integer.valueOf(rapidtestbinding.textAttentionnumber.getText().toString());
+
+                        if (y1 > 34.95557){
+                            outcome = "否";
+                        }
+                        else {
+                            outcome="是";
+                        }
+                    }
+                    else if ("男性".equals(genderanswer)){
+                        y2 = 0.09059699 * agenumber - 0.03676339 * revenuenumber -
+                                0.01908419 * hightnumber + 0.37966344 * weightnumber +
+                                0.69927958 * sleepstarttimenumber - 0.06674871 * sleeptimenumber -
+                                0.05892681 * activitytimenumber - 0.04100488 * phonetimenumber+
+                                0.28362781 * noisenumber - 0.1207611 * comfortablenumber +
+                                5 * 0.16066278 * Integer.valueOf(rapidtestbinding.textTirednumber.getText().toString())
+                                - 5 * 0.13924082 * Integer.valueOf(rapidtestbinding.textHeadachenumber.getText().toString()) +
+                                5 * 0.13720647 * Integer.valueOf(rapidtestbinding.textTolitnumber.getText().toString()) +
+                                5 * 0.40881138 * Integer.valueOf(rapidtestbinding.textHeadachenumberProgress.getText().toString()) +
+                                5 * 0.08932488 * Integer.valueOf(rapidtestbinding.textDreamnumber.getText().toString())
+                                - 5 * 0.11476586 * Integer.valueOf(rapidtestbinding.textDrynumber.getText().toString());
+
+                        if (y2 > 35.17268){
+                            outcome = "否";
+                        }
+                        else {
+                            outcome="是";
+                        }
+                    }
+                    else if ("女性".equals(genderanswer)){
+                        y3 = 0.74920566 * sleepstarttimenumber + 0.61270342 * comfortablenumber+
+                                5 * 0.22842975 * Integer.valueOf(rapidtestbinding.textHeadachenumber.getText().toString()) +
+                                5 * 0.08697056 * Integer.valueOf(rapidtestbinding.textTolitnumber.getText().toString()) +
+                                5 * 0.05950947 * Integer.valueOf(rapidtestbinding.textAttentionnumber.getText().toString());
+
+                        if (y3 > 36.34173){
+                            outcome = "否";
+                        }
+                        else {
+                            outcome="是";
+                        }
+                    }
+
+                    /*add(date,time,genderanswer,ageanswer,revenueanswer,hightanswer,weightanswer
+                            ,sleepstarttimeanswer,sleeptimeanswer,activitytimeanswer,phonetimeanswer,noiseanswer,comfortableanswer
+                            ,text_tirednumber.getText().toString(),text_tolitnumber.getText().toString(),text_headachenumber.getText().toString(),text_lazynumber.getText().toString(),text_dreamnumber.getText().toString(),text_acholicnumber.getText().toString(),text_drynumber.getText().toString(),text_attentionnumber.getText().toString(),text_headachenumberprogress.getText().toString(),outcome);
+                     */
+
+                    add(date,outcome);
+
+                    Intent intent = new Intent();
+                    intent.setClass(RapidtestActivity.this,JudgeActivity.class);
+                    Bundle bundle1 = new Bundle();
+                    bundle1.putString("outcome",outcome);
+                    intent.putExtras(bundle1);
+                    startActivity(intent);
+                    RapidtestActivity.this.finish();
+                }
+            }
+        });
     }
 
+    /*
     @OnClick(R.id.submit)
     public void onViwClicked(View view){
         switch (view.getId()) {
@@ -722,10 +823,10 @@ public class RapidtestActivity extends AppCompatActivity {
                         }
                     }
 
-                    /*add(date,time,genderanswer,ageanswer,revenueanswer,hightanswer,weightanswer
-                            ,sleepstarttimeanswer,sleeptimeanswer,activitytimeanswer,phonetimeanswer,noiseanswer,comfortableanswer
-                            ,text_tirednumber.getText().toString(),text_tolitnumber.getText().toString(),text_headachenumber.getText().toString(),text_lazynumber.getText().toString(),text_dreamnumber.getText().toString(),text_acholicnumber.getText().toString(),text_drynumber.getText().toString(),text_attentionnumber.getText().toString(),text_headachenumberprogress.getText().toString(),outcome);
-                     */
+                    //add(date,time,genderanswer,ageanswer,revenueanswer,hightanswer,weightanswer
+                    //,sleepstarttimeanswer,sleeptimeanswer,activitytimeanswer,phonetimeanswer,noiseanswer,comfortableanswer
+                    //,text_tirednumber.getText().toString(),text_tolitnumber.getText().toString(),text_headachenumber.getText().toString(),text_lazynumber.getText().toString(),text_dreamnumber.getText().toString(),text_acholicnumber.getText().toString(),text_drynumber.getText().toString(),text_attentionnumber.getText().toString(),text_headachenumberprogress.getText().toString(),outcome);
+
 
                     add(date,outcome);
 
@@ -740,6 +841,7 @@ public class RapidtestActivity extends AppCompatActivity {
                 break;
         }
     }
+    */
 
     private void add(String date,String outcome){
         ContentValues values = new ContentValues();

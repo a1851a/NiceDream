@@ -40,6 +40,7 @@ import butterknife.ButterKnife;
 import fju.project.nicedream.data.db.SQLdata;
 import fju.project.nicedream.data.eventbus.StringEvent;
 import fju.project.nicedream.data.util.DisableSwipeViewPager;
+import fju.project.nicedream.databinding.ActivityMainBinding;
 import fju.project.nicedream.ui.main.fragment.alarm.AlarmFragment;
 import fju.project.nicedream.ui.main.fragment.home.HomeFragment;
 import fju.project.nicedream.ui.main.fragment.record.RecordFragment;
@@ -66,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
     //buttom fix bar item count
     private static final int itemCount = 4;
 
+    ActivityMainBinding mainbinding;
+
     @BindView(R.id.constraintLayout_main)
     ConstraintLayout constraintLayoutMain;
     @BindView(R.id.tabLayout_main_bottomBar)
@@ -76,7 +79,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
+        mainbinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(mainbinding.getRoot());
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();

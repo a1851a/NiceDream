@@ -57,8 +57,8 @@
 
         <WebView
             android:id="@+id/vedio_webview"
-            android:layout_width="400dp"
-            android:layout_height="550dp"
+            android:layout_width="360dp"
+            android:layout_height="540dp"
             android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

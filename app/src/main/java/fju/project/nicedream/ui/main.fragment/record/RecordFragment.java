@@ -36,6 +36,7 @@ import fju.project.nicedream.MainActivity;
 import fju.project.nicedream.NiceDreamApplication;
 import fju.project.nicedream.R;
 import fju.project.nicedream.data.db.SQLdata;
+import fju.project.nicedream.databinding.FragmentRecordBinding;
 import fju.project.nicedream.ui.chart.ChartActivity;
 
 public class RecordFragment extends Fragment {
@@ -46,16 +47,20 @@ public class RecordFragment extends Fragment {
     private Timer timer;
     private TimerTask timerTask;
 
+    FragmentRecordBinding recordbinding;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_record,container,false);
+        //View view = inflater.inflate(R.layout.fragment_record,container,false);
+        recordbinding = FragmentRecordBinding.inflate(inflater,container,false);
 
         DH = new SQLdata(getActivity());
         //讀取資料庫
         db = DH.getWritableDatabase();
 
-        return view;
+        //return view;
+        return recordbinding.getRoot();
     }
 
     @Override

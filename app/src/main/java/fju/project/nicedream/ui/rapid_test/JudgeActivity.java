@@ -23,12 +23,16 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fju.project.nicedream.R;
 import fju.project.nicedream.data.util.DeviceChecker;
+import fju.project.nicedream.databinding.ActivityJudgeBinding;
 import fju.project.nicedream.ui.main.fragment.setting.article.ArticleActivity;
 import fju.project.nicedream.ui.main.fragment.setting.share.ShareActivity;
 import fju.project.nicedream.ui.main.fragment.setting.vedio.VedioActivity;
 
 public class JudgeActivity extends AppCompatActivity {
 
+    ActivityJudgeBinding judgebinding;
+
+    /*
     @BindView(R.id.judge_date)
     TextView judgedate;
     @BindView(R.id.health)
@@ -53,6 +57,7 @@ public class JudgeActivity extends AppCompatActivity {
     ProgressBar progressBar;
     @BindView(R.id.judge_hosipital)
     Button judge_hosipital;
+    */
 
     private String outcome1;
     private TimerTask timerTask;
@@ -60,15 +65,17 @@ public class JudgeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_judge);
+        //setContentView(R.layout.activity_judge);
+        judgebinding = ActivityJudgeBinding.inflate(getLayoutInflater());
+        setContentView(judgebinding.getRoot());
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
 
-        ButterKnife.bind(this);
+        //ButterKnife.bind(this);
 
-        judgedate.setText(""+ DateFormat.format("yyyy/MM/dd",System.currentTimeMillis()));
+        judgebinding.judgeDate.setText(""+ DateFormat.format("yyyy/MM/dd",System.currentTimeMillis()));
 
         Intent intent = this.getIntent();
         //取得bundle，慢慢拆解從Intent中找到附加的資料
@@ -83,8 +90,45 @@ public class JudgeActivity extends AppCompatActivity {
                 show();
             }
         },3000);
+
+        judgebinding.judgeHosipital.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DeviceChecker.CheckInternet(JudgeActivity.this)){
+                    return;
+                }
+                else {
+                    startActivity(new Intent(JudgeActivity.this, HosipitalActivity.class));
+                }
+            }
+        });
+
+        judgebinding.judgeArticle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DeviceChecker.CheckInternet(JudgeActivity.this)){
+                    return;
+                }
+                else {
+                    startActivity(new Intent(JudgeActivity.this, ArticleActivity.class));
+                }
+            }
+        });
+
+        judgebinding.judgeVedio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!DeviceChecker.CheckInternet(JudgeActivity.this)){
+                    return;
+                }
+                else {
+                    startActivity(new Intent(JudgeActivity.this, VedioActivity.class));
+                }
+            }
+        });
     }
 
+    /*
     @OnClick({R.id.judge_hosipital,R.id.judge_article,R.id.judge_vedio})
     public void onViwClicked(View view){
         switch (view.getId()) {
@@ -113,17 +157,17 @@ public class JudgeActivity extends AppCompatActivity {
                 }
                 break;
         }
-    }
+    }*/
 
     private void show(){
-        progressBar.setVisibility(View.GONE);
-        loading.setVisibility(View.INVISIBLE);
+        judgebinding.progressBar.setVisibility(View.GONE);
+        judgebinding.loading.setVisibility(View.INVISIBLE);
         //Toast.makeText(JudgeActivity.this,outcome1,Toast.LENGTH_SHORT).show();
         if ("否".equals(outcome1)){
-            main_good.setVisibility(View.VISIBLE);
+            judgebinding.mainGood.setVisibility(View.VISIBLE);
         }
         else {
-            main_bad.setVisibility(View.VISIBLE);
+            judgebinding.mainBad.setVisibility(View.VISIBLE);
         }
     }
 
@@ -136,7 +180,7 @@ public class JudgeActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        judgedate.setText("" + DateFormat.format("yyyy/MM/dd", System.currentTimeMillis()));
+                        judgebinding.judgeDate.setText("" + DateFormat.format("yyyy/MM/dd", System.currentTimeMillis()));
                     }
                 });
             }
